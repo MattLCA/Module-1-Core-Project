@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amandla HR</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="logo">A</div>
+      <div class="name">Amandla HR</div>
+    </div>
+    <nav class="nav">
+      <button class="nav-item active" data-view="home"><span class="icon"></span> Home</button>
+      <button class="nav-item" data-view="payroll"><span class="icon"></span> Payroll</button>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="who">Payroll Admin</div>
+      admin@company.co.za
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <!-- HOME VIEW -->
+    <section id="view-home">
+      <div class="page-title">Welcome back</div>
+      <div class="page-subtitle">Here's a snapshot of your workforce today.</div>
+
+      <div class="stats" id="stats"></div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Employee Directory</h2>
+          <div class="search-box">
+            <span></span>
+            <input id="search" placeholder="Search employees..." />
+          </div>
+        </div>
+        <div id="employee-list"></div>
+      </div>
+    </section>
+
+    <!-- PAYROLL VIEW -->
+    <section id="view-payroll" style="display:none;">
+      <div class="page-title">Payroll</div>
+      <div class="page-subtitle">Review monthly pay components and generate payslips.</div>
+
+      <div class="panel" style="padding:0; overflow:hidden;">
+        <table>
+          <thead>
+            <tr>
+              <th>Employee</th><th>Basic</th><th>Allowances</th><th>Deductions</th><th>Net Pay</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="payroll-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Payslip modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="title">Amandla HR · Payslip</div>
+        <div class="subtitle">Pay period: June 2026</div>
+      </div>
+      <button class="modal-close" id="modal-close">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
