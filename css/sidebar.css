@@ -1,0 +1,138 @@
+.sidebar {
+
+    background: #27187E;
+    height: 100vh;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 30px 20px;
+
+}
+
+/* Logo */
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 40px;
+
+}
+
+.logo img {
+
+    width: 45px;
+
+}
+
+.logo h2 {
+
+    font-size: 1.4rem;
+
+}
+
+/* Titles */
+
+.sidebar-title {
+
+    color: #AEB8FE;
+
+    margin: 30px 0 10px;
+
+    font-size: .8rem;
+
+    letter-spacing: 1px;
+
+}
+
+/* Navigation */
+
+.nav-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 18px;
+
+    border-radius: 12px;
+
+    margin-bottom: 8px;
+
+    transition: .3s;
+
+}
+
+.nav-item:hover {
+
+    background: #758BFD;
+
+}
+
+.nav-item.active {
+
+    background: #758BFD;
+
+}
+
+.nav-item i {
+
+    width: 22px;
+
+}
+
+/* Profile */
+
+.profile-card {
+
+    display: flex;
+
+    gap: 15px;
+
+    background: #35269A;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+.profile-card img {
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+}
+
+/* Help */
+
+.help-card {
+
+    display: flex;
+
+    gap: 15px;
+
+    background: #758BFD;
+
+    border-radius: 18px;
+
+    padding: 18px;
+
+}

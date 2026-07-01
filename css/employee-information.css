@@ -1,4 +1,4 @@
-*{
+/* *{
     margin:0;
     padding:0;
     box-sizing:border-box;
@@ -55,6 +55,15 @@ body{
     color:#AEB8FE;
 
 }
+.nav-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
 .nav-item{
 
     display:flex;
@@ -74,3 +83,132 @@ body{
     transition:.3s;
 
 }
+.nav-item:hover{
+
+    background:#758BFD;
+
+}
+.active{
+
+    background:#758BFD;
+
+}
+.nav-item i{
+
+    font-size:20px;
+
+    width:25px;
+
+}
+.profile-card{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    background:#35269a;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    color:white;
+
+}
+.profile-card img{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+}
+.help-card{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    background:#758BFD;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    color:white;
+
+}
+
+/* Header */
+/* .page-header{
+
+    padding:40px;
+
+}
+
+.page-header h1{
+
+    font-size:36px;
+
+    color:#27187E;
+
+}
+
+.page-header p{
+
+    color:#666;
+
+    margin-top:10px;
+
+}
+
+/* Tabs */
+/* .tabs{
+
+    display:flex;
+
+    gap:40px;
+
+    margin:30px 40px;
+
+    border-bottom:2px solid #ddd;
+
+} */
+/* Buttons */
+/* .tab{
+
+    background:none;
+
+    border:none;
+
+    padding:15px 0;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    color:#555;
+
+}
+.active-tab{
+
+    color:#27187E;
+
+    border-bottom:4px solid #758BFD;
+
+    font-weight:bold;
+
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+} */
