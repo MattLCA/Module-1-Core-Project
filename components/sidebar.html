@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/layout.css">
 
     <!-- ICON IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
     <title>ModernTech</title>
 </head>
 
-<body>
 
+<body>
     <aside class="sidebar">
         <div>
 
             <!-- Logo -->
             <div class="logo">
-                <img src="images/logo.svg" alt="ModernTech">
+                <img src="images/logo.svg" alt="logo">
                 <div>
                     <h2>ModernTech</h2>
                 </div>
@@ -32,97 +32,125 @@
             <!-- Main Navigation -->
             <h5 class="sidebar-title">MAIN</h5>
             <nav>
-                <a href="index.html" class="nav-item active">
+                <a href="index.html" id="nav-dashboard" class="nav-item">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
                 </a>
 
-                <a href="attendance.html" class="nav-item">
+                <a href="attendance.html" id="nav-attendance" class="nav-item">
                     <i class="fa-solid fa-calendar-check"></i>
                     Attendance
                 </a>
 
-                <a href="leave.html" class="nav-item">
+                <a href="leave.html" id="nav-leave" class="nav-item">
                     <i class="fa-solid fa-calendar-days"></i>
                     Leave
                 </a>
 
-                <a href="payroll.html" class="nav-item">
+                <a href="payroll.html" id="nav-payroll" class="nav-item">
                     <i class="fa-solid fa-coins" style="color: #ffffff;"></i>
                     Payroll
                 </a>
 
-                <a href="information.html" class="nav-item">
+                <a href="employee-information.html" id="nav-information" class="nav-item">
                     <i class="fa-solid fa-circle-info" style="color: #ffffff;"></i>
                     My Information
                 </a>
             </nav>
 
-            <h5 class="sidebar-title">ACCOUNT</h5>
 
+            <h5 class="sidebar-title">ACCOUNT</h5>
             <nav>
-                <a href="notifications.html" class="nav-item">
+                <a href="notifications.html" id="nav-notifications" class="nav-item">
+                    <i class="fa-solid fa-bell"></i>
+                    Notifications
+                </a>
+
+                <a href="profile.html" id="nav-profile" class="nav-item">
+                    <i class="fa-solid fa-circle-user" style="color: #ffffff;"></i>
+                    My Profile
+                </a>
+
+                <a href="settings.html" id="nav-settings" class="nav-item">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </nav>
+        </div>
+
+        
+        <div>
+            <div class="profile-card">
+                <i class="fa-solid fa-user"></i>
+                <div>
+                    <h4>Sibongile Nkosi</h4>
+                    <p>Staff ID: 125</p>
+                </div>
+            </div>
+
+            <div class="logout-card">
+                <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
+                <h4>Log Out</h4>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- Main Content -->
+<main class="main-content">
+
+    <section class="page">
+
+        <!-- Page Header -->
+        <header class="page-header">
+
+            <div class="header-text">
+
+                <h1 id="page-title"></h1>
+
+                <p id="page-subtitle"></p>
+
+            </div>
+
+            <div class="header-actions">
+
+                <button class="notification-btn">
 
                     <i class="fa-solid fa-bell"></i>
 
-                    Notifications
+                </button>
 
-                </a>
+                <div class="header-profile">
 
-                <a href="profile.html" class="nav-item">
+                    <div class="header-avatar">
 
-                    <i class="fa-solid fa-circle-user" style="color: #ffffff;"></i>
+                        <i class="fa-solid fa-user"></i>
 
-                    Profile
+                    </div>
 
-                </a>
+                    <div>
 
-                <a href="settings.html" class="nav-item">
+                        <h4 id="employee-name"></h4>
 
-                    <i class="fa-solid fa-gear"></i>
+                        <p id="employee-role"></p>
 
-                    Settings
-
-                </a>
-
-            </nav>
-
-        </div>
-
-        <div>
-
-            <div class="profile-card">
-
-                <i class="fa-solid fa-user"></i>
-
-                <div>
-
-                    <h4>Sibongile Nkosi</h4>
-
-                    <p>Staff ID: 125</p>
+                    </div>
 
                 </div>
 
             </div>
 
-            <div class="logout-card">
+        </header>
 
-                <i class="fa-solid fa-arrow-right-from-bracket" style="color: #ffffff;"></i>
+        <!-- Everything else for this page goes here -->
 
-                <h4>Log Out</h4>
+    </section>
 
-            </div>
+</main>
 
-        </div>
+<!-- JavaScript -->
+<script src="../javascript/sidebar.js"></script>
+<script src="../javascript/script.js"></script>
 
-    </aside>
-
-
-
-
-
-    <!-- JavaScript -->
-    <script src="javascript/script.js"></script>
 </body>
-
 </html>

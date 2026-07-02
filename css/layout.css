@@ -1,4 +1,4 @@
-body{
+/* body{
     display:flex;
     height:100vh;
     overflow:hidden;
@@ -32,4 +32,186 @@ body{
     margin-top:4px;
     color:#6B7280;
     font-size:.95rem;
+} */
+
+
+
+/* ==========================================
+   LAYOUT
+========================================== */
+
+body{
+
+    display:flex;
+
+    height:100vh;
+
+    overflow:hidden;
+
+    background:#F1F2F6;
+
+}
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.main-content{
+
+    flex:1;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.page{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:32px;
+
+}
+
+/* ==========================================
+   PAGE HEADER
+========================================== */
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.header-text h1{
+
+    color:#27187E;
+
+    font-size:2rem;
+
+    font-weight:600;
+
+}
+
+.header-text p{
+
+    margin-top:6px;
+
+    color:#6B7280;
+
+}
+
+.header-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+/* ==========================================
+   NOTIFICATION BUTTON
+========================================== */
+
+.notification-btn{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:white;
+
+    cursor:pointer;
+
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.notification-btn:hover{
+
+    background:#758BFD;
+
+    color:white;
+
+}
+
+.notification-btn i{
+
+    font-size:17px;
+
+}
+
+/* ==========================================
+   HEADER PROFILE
+========================================== */
+
+.header-profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.header-avatar{
+
+    width:44px;
+
+    height:44px;
+
+    border-radius:50%;
+
+    background:#27187E;
+
+    color:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.header-avatar i{
+
+    font-size:18px;
+
+}
+
+.header-profile h4{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+}
+
+.header-profile p{
+
+    font-size:.8rem;
+
+    color:#6B7280;
+
 }
