@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/employee-information.css">
 
     <!-- ICON IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <title>ModernTech - My Information</title>
 </head>
@@ -78,7 +80,7 @@
             </nav>
         </div>
 
-        
+
         <div>
             <div class="profile-card">
                 <i class="fa-solid fa-user"></i>
@@ -97,60 +99,104 @@
 
 
     <!-- Main Content -->
-<main class="main-content">
+    <main class="main-content">
 
-    <section class="page">
+        <section class="page">
 
-        <!-- Page Header -->
-        <header class="page-header">
+            <!-- Page Header -->
+            <header class="page-header">
 
-            <div class="header-text">
+                <div class="header-text">
 
-                <h1 id="page-title"></h1>
+                    <h1 id="page-title"></h1>
 
-                <p id="page-subtitle"></p>
+                    <p id="page-subtitle"></p>
 
-            </div>
+                </div>
 
-            <div class="header-actions">
+                <div class="header-actions">
 
-                <button class="notification-btn">
+                    <button class="notification-btn">
 
-                    <i class="fa-solid fa-bell"></i>
+                        <i class="fa-solid fa-bell"></i>
 
-                </button>
+                    </button>
 
-                <div class="header-profile">
+                    <div class="header-profile">
 
-                    <div class="header-avatar">
+                        <div class="header-avatar">
 
-                        <i class="fa-solid fa-user"></i>
+                            <i class="fa-solid fa-user"></i>
 
-                    </div>
+                        </div>
 
-                    <div>
+                        <div>
 
-                        <h4 id="employee-name"></h4>
+                            <h4 id="employee-name"></h4>
 
-                        <p id="employee-role"></p>
+                            <p id="employee-role"></p>
+
+                        </div>
 
                     </div>
 
                 </div>
 
+            </header>
+
+            <!-- Everything else for this page goes here -->
+
+            <!-- Information Tabs -->
+
+            <div class="tabs">
+
+                <button class="tab-btn active" data-tab="personal">
+                    Personal Information
+                </button>
+
+                <button class="tab-btn" data-tab="salary">
+                    Salary Details
+                </button>
+
+                <button class="tab-btn" data-tab="history">
+                    Work History
+                </button>
+
             </div>
 
-        </header>
+            <!-- Personal -->
 
-        <!-- Everything else for this page goes here -->
+            <div id="personal" class="tab-content active">
 
-    </section>
+                <!-- Personal information card goes here -->
 
-</main>
+            </div>
 
-<!-- JavaScript -->
-<script src="javascript/sidebar.js"></script>
-<script src="javascript/script.js"></script>
+            <!-- Salary -->
+
+            <div id="salary" class="tab-content">
+
+                <!-- Salary card goes here -->
+
+            </div>
+
+            <!-- Work History -->
+
+            <div id="history" class="tab-content">
+
+                <!-- Work history goes here -->
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script src="javascript/sidebar.js"></script>
+    <script src="javascript/employee-information.js"></script>
+    <script src="javascript/script.js"></script>
 
 </body>
+
 </html>
