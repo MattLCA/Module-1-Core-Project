@@ -1,7 +1,3 @@
-/* ==========================================
-   RESET
-========================================== */
-
 * {
     margin: 0;
     padding: 0;
@@ -13,83 +9,43 @@ html {
 }
 
 body {
-
     font-family: "Poppins", sans-serif;
     background: #F1F2F6;
     color: #2D2D2D;
-
 }
 
-/* ==========================================
-   COLOURS
-========================================== */
-
 :root {
-
     --primary: #27187E;
     --secondary: #758BFD;
     --accent: #AEB8FE;
     --background: #F1F2F6;
     --orange: #FF8600;
-
     --white: #fff;
-
     --grey: #6B7280;
-
     --border: #E5E7EB;
-
 }
-
-/* ==========================================
-   LINKS
-========================================== */
 
 a {
-
     text-decoration: none;
-
     color: inherit;
-
 }
 
-/* ==========================================
-   BUTTONS
-========================================== */
-
 .btn-primary {
-
     background: var(--orange);
-
     color: white;
-
     border: none;
-
     padding: 12px 20px;
-
     border-radius: 10px;
-
     cursor: pointer;
-
 }
 
 .btn-primary:hover {
-
     opacity: .9;
-
 }
 
-/* ==========================================
-   CARDS
-========================================== */
-
 .card {
-
     background: white;
-
     border-radius: 18px;
-
     padding: 25px;
-
     box-shadow: 0 3px 10px rgba(0, 0, 0, .06);
-
 }
