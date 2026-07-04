@@ -1,48 +1,51 @@
 console.log("Employee Information JS file is connected");
 
-// const tabs = document.querySelectorAll(".tab");
-// const sections = document.querySelectorAll(".tab-content");
-
-// tabs.forEach((tab, index) => {
-//     tab.addEventListener("click", () => {
-
-//         // Remove active classes
-//         tabs.forEach(t => t.classList.remove("active-tab"));
-//         sections.forEach(section => section.classList.remove("active"));
-
-//         // Activate selected tab and content
-//         tab.classList.add("active-tab");
-//         sections[index].classList.add("active");
-//     });
-// });
-
-
 document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll(".emp-info-tab");
+  const contents = document.querySelectorAll(".emp-info-content");
 
-    const tabs = document.querySelectorAll(".tab-btn");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((button) => button.classList.remove("active"));
 
-    const contents = document.querySelectorAll(".tab-content");
+      contents.forEach((content) => content.classList.remove("active"));
 
-    tabs.forEach(tab => {
+      tab.classList.add("active");
 
-        tab.addEventListener("click", () => {
-
-            tabs.forEach(button =>
-                button.classList.remove("active")
-            );
-
-            contents.forEach(content =>
-                content.classList.remove("active")
-            );
-
-            tab.classList.add("active");
-
-            document
-                .getElementById(tab.dataset.tab)
-                .classList.add("active");
-
-        });
-
+      document.getElementById(tab.dataset.tab).classList.add("active");
     });
-
+  });
 });
+
+fetch("data/employee_info.json")
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("JSON could not be loaded.");
+    }
+
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+
+    const employee = data.employeeInformation.find(
+      (emp) => emp.employeeId === 1,
+    );
+
+    document.getElementById("empName").textContent = employee.name;
+    document.getElementById("empID").textContent = employee.employeeId;
+    document.getElementById("empDepartment").textContent = employee.department;
+    document.getElementById("empPosition").textContent = employee.position;
+    document.getElementById("empEmail").textContent = employee.contact;
+    document.getElementById("empSalary").textContent =
+      "R " + employee.salary.toLocaleString();
+    document.getElementById("empHistory").textContent =
+      employee.employmentHistory;
+    document.getElementById("empDepartmentHistory").textContent =
+      employee.department;
+    document.getElementById("empPositionHistory").textContent =
+      employee.position;
+  })
+  .catch((error) => {
+    console.error(error);
+  });

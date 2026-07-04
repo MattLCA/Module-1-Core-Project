@@ -5,9 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/employee-information.css">
 
     <!-- ICON IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,9 +31,14 @@
             <!-- Main Navigation -->
             <h5 class="sidebar-title">MAIN</h5>
             <nav>
-                <a href="index.html" id="nav-dashboard" class="nav-item">
+                <a href="dashboard.html" id="nav-dashboard" class="nav-item">
                     <i class="fa-solid fa-house"></i>
                     Dashboard
+                </a>
+
+                <a href="notifications.html" id="nav-notifications" class="nav-item">
+                    <i class="fa-solid fa-bell"></i>
+                    Inbox
                 </a>
 
                 <a href="attendance.html" id="nav-attendance" class="nav-item">
@@ -63,11 +65,6 @@
 
             <h5 class="sidebar-title">ACCOUNT</h5>
             <nav>
-                <a href="notifications.html" id="nav-notifications" class="nav-item">
-                    <i class="fa-solid fa-bell"></i>
-                    Notifications
-                </a>
-
                 <a href="profile.html" id="nav-profile" class="nav-item">
                     <i class="fa-solid fa-circle-user" style="color: #ffffff;"></i>
                     My Profile
@@ -103,38 +100,131 @@
 
         <section class="page">
 
-            <!-- Page Header -->
+
+            <!-- PAGE HEADER -->
+
             <header class="page-header">
 
                 <div class="header-text">
 
-                    <h1 id="page-title"></h1>
+                    <h1>My Information</h1>
 
-                    <p id="page-subtitle"></p>
+                    <p>View your personal and employment information.</p>
 
                 </div>
 
-                <div class="header-actions">
+            </header>
 
-                    <button class="notification-btn">
+            <!-- Tabs -->
 
-                        <i class="fa-solid fa-bell"></i>
 
-                    </button>
+            <div class="leave-tabs">
 
-                    <div class="header-profile">
+                <button class="emp-info-tab active" data-tab="personal">
 
-                        <div class="header-avatar">
+                    <i class="fa-solid fa-id-card"></i>
 
-                            <i class="fa-solid fa-user"></i>
+                    Personal Information
 
-                        </div>
+                </button>
+
+                <button class="emp-info-tab" data-tab="salary">
+
+                    <i class="fa-solid fa-wallet"></i>
+
+                    Salary Details
+
+                </button>
+
+                <button class="emp-info-tab" data-tab="history">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    Work History
+
+                </button>
+
+            </div>
+
+            <!-- Main Card -->
+
+            <section class="emp-info-card">
+
+                <!-- =========================
+                 PERSONAL INFORMATION
+            ========================== -->
+
+                <div id="personal" class="emp-info-content active">
+
+                    <div class="emp-info-title">
 
                         <div>
 
-                            <h4 id="employee-name"></h4>
+                            <h2>
 
-                            <p id="employee-role"></p>
+                                <i class="fa-solid fa-user"></i>
+
+                                Personal Information
+
+                            </h2>
+
+                            <p>Your personal and employment details.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="emp-info-grid">
+
+                        <div class="emp-info-item">
+
+                            <span>Name</span>
+
+                            <strong id="empName"></strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Employee ID</span>
+
+                            <strong id="empID"></strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Department</span>
+
+                            <strong id="empDepartment"></strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Position</span>
+
+                            <strong id="empPosition"></strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Email</span>
+
+                            <strong id="empEmail"></strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Employment Status</span>
+
+                            <strong class="emp-status">
+
+                                Full Time
+
+                            </strong>
 
                         </div>
 
@@ -142,51 +232,153 @@
 
                 </div>
 
-            </header>
+                <!-- =========================
+                 SALARY DETAILS
+            ========================== -->
 
-            <!-- Everything else for this page goes here -->
+                <div id="salary" class="emp-info-content">
 
-            <!-- Information Tabs -->
+                    <div class="emp-info-title">
 
-            <div class="tabs">
+                        <div>
 
-                <button class="tab-btn active" data-tab="personal">
-                    Personal Information
-                </button>
+                            <h2>
 
-                <button class="tab-btn" data-tab="salary">
-                    Salary Details
-                </button>
+                                <i class="fa-solid fa-money-check-dollar"></i>
 
-                <button class="tab-btn" data-tab="history">
-                    Work History
-                </button>
+                                Salary Details
 
-            </div>
+                            </h2>
 
-            <!-- Personal -->
+                            <p>Your salary information.</p>
 
-            <div id="personal" class="tab-content active">
+                        </div>
 
-                <!-- Personal information card goes here -->
+                    </div>
 
-            </div>
+                    <div class="emp-info-grid">
 
-            <!-- Salary -->
+                        <div class="emp-info-item">
 
-            <div id="salary" class="tab-content">
+                            <span>Basic Salary</span>
 
-                <!-- Salary card goes here -->
+                            <strong id="empSalary"></strong>
 
-            </div>
+                        </div>
 
-            <!-- Work History -->
+                        <div class="emp-info-item">
 
-            <div id="history" class="tab-content">
+                            <span>Salary Type</span>
 
-                <!-- Work history goes here -->
+                            <strong>Monthly</strong>
 
-            </div>
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Payment Method</span>
+
+                            <strong>Bank Transfer</strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Next Payday</span>
+
+                            <strong>30 July 2026</strong>
+
+                        </div>
+
+                        <div class="emp-info-item">
+
+                            <span>Payslips</span>
+
+                            <strong>
+
+                                Available Online
+
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- =========================
+                 WORK HISTORY
+            ========================== -->
+
+                <div id="history" class="emp-info-content">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+
+                                <i class="fa-solid fa-briefcase"></i>
+
+                                Work History
+
+                            </h2>
+
+                            <p>Your employment journey at ModernTech.</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="emp-timeline">
+
+                        <div class="timeline-item">
+
+                            <div class="timeline-dot"></div>
+
+                            <div>
+
+                                <h4>Current Employment</h4>
+
+                                <p id="empHistory"></p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="timeline-item">
+
+                            <div class="timeline-dot"></div>
+
+                            <div>
+
+                                <h4>Current Department</h4>
+
+                                <p id="empDepartmentHistory"></p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="timeline-item">
+
+                            <div class="timeline-dot"></div>
+
+                            <div>
+
+                                <h4>Current Position</h4>
+
+                                <p id="empPositionHistory"></p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
 
         </section>
 
@@ -196,6 +388,7 @@
     <script src="javascript/sidebar.js"></script>
     <script src="javascript/employee-information.js"></script>
     <script src="javascript/script.js"></script>
+
 
 </body>
 

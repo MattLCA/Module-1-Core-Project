@@ -215,3 +215,30 @@ body{
     color:#6B7280;
 
 }
+
+
+.main-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    height:100vh;
+
+    padding:30px;
+
+    background:var(--background);
+
+}
+
+.page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
+
+    gap:25px;
+
+}

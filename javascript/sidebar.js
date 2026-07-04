@@ -1,6 +1,5 @@
 // console.log("sidebar.js loaded");
 
-
 // document.addEventListener("DOMContentLoaded", () => {
 
 //     const employee = {
@@ -91,89 +90,81 @@
 
 // });
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Current page
+  let currentPage = window.location.pathname.split("/").pop();
 
-    // Current page
-    let currentPage = window.location.pathname.split("/").pop();
+  if (currentPage === "") {
+    currentPage = "index.html";
+  }
 
-    if (currentPage === "") {
-        currentPage = "index.html";
-    }
+  // Everything for each page
+  const pages = {
+    "index.html": {
+      nav: "nav-dashboard",
+      title: "Dashboard",
+      subtitle: "Welcome back to the ModernTech Employee Portal.",
+    },
 
-    // Everything for each page
-    const pages = {
+    "attendance.html": {
+      nav: "nav-attendance",
+      title: "Attendance",
+      subtitle: "View your attendance records and working hours.",
+    },
 
-        "index.html": {
-            nav: "nav-dashboard",
-            title: "Dashboard",
-            subtitle: "Welcome back to the ModernTech Employee Portal."
-        },
+    "leave.html": {
+      nav: "nav-leave",
+      title: "Leave Requests",
+      subtitle: "Submit and track your leave requests.",
+    },
 
-        "attendance.html": {
-            nav: "nav-attendance",
-            title: "Attendance",
-            subtitle: "View your attendance records and working hours."
-        },
+    "payroll.html": {
+      nav: "nav-payroll",
+      title: "Payroll",
+      subtitle: "View your payroll information and earnings.",
+    },
 
-        "leave.html": {
-            nav: "nav-leave",
-            title: "Leave Requests",
-            subtitle: "Submit and track your leave requests."
-        },
+    "employee-information.html": {
+      nav: "nav-information",
+      title: "My Information",
+      subtitle: "View and update your employment information.",
+    },
 
-        "payroll.html": {
-            nav: "nav-payroll",
-            title: "Payroll",
-            subtitle: "View your payroll information and earnings."
-        },
+    "notifications.html": {
+      nav: "nav-notifications",
+      title: "Notifications",
+      subtitle: "Stay informed about important updates.",
+    },
 
-        "employee-information.html": {
-            nav: "nav-information",
-            title: "My Information",
-            subtitle: "View and update your employment information."
-        },
+    "profile.html": {
+      nav: "nav-profile",
+      title: "My Profile",
+      subtitle: "Manage your account information.",
+    },
 
-        "notifications.html": {
-            nav: "nav-notifications",
-            title: "Notifications",
-            subtitle: "Stay informed about important updates."
-        },
+    "settings.html": {
+      nav: "nav-settings",
+      title: "Settings",
+      subtitle: "Customize your application preferences.",
+    },
+  };
 
-        "profile.html": {
-            nav: "nav-profile",
-            title: "My Profile",
-            subtitle: "Manage your account information."
-        },
+  const page = pages[currentPage];
 
-        "settings.html": {
-            nav: "nav-settings",
-            title: "Settings",
-            subtitle: "Customize your application preferences."
-        }
+  if (!page) return;
 
-    };
+  // Active sidebar item
+  document.getElementById(page.nav)?.classList.add("active");
 
-    const page = pages[currentPage];
+  // Heading
+  const title = document.getElementById("page-title");
+  const subtitle = document.getElementById("page-subtitle");
 
-    if (!page) return;
+  if (title) {
+    title.textContent = page.title;
+  }
 
-    // Active sidebar item
-    document
-        .getElementById(page.nav)
-        ?.classList.add("active");
-
-    // Heading
-    const title = document.getElementById("page-title");
-    const subtitle = document.getElementById("page-subtitle");
-
-    if (title) {
-        title.textContent = page.title;
-    }
-
-    if (subtitle) {
-        subtitle.textContent = page.subtitle;
-    }
-
+  if (subtitle) {
+    subtitle.textContent = page.subtitle;
+  }
 });
