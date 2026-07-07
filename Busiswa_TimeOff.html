@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR-Time Off</title>
+    <link rel="stylesheet" href="Busiswa_Style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+      <button
+        class="sidebar-toggle"
+        id="sidebarToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">HR</div>
+          <div>
+            <div class="brand-name">ModernTech</div>
+            <div class="brand-sub">HR Suite</div>
+          </div>
+        </div>
+
+        <div class="nav-section-label">Workspace</div>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="hr-dashboard.html" class="nav-item"
+            ><i class="ti ti-layout-grid" aria-hidden="true"></i>Dashboard</a
+          >
+          <a href="hr-employees.html" class="nav-item"
+            ><i class="ti ti-users" aria-hidden="true"></i>Employees</a
+          >
+          <a href="./Busiswa_Attendance.html" class="nav-item"
+            ><i class="ti ti-calendar-check" aria-hidden="true"></i
+            >Attendance</a
+          >
+          <a href="./Busiswa_LeaveRequest.html" class="nav-item"
+            ><i class="ti ti-beach" aria-hidden="true"></i>Leave</a
+          >
+          <a href="hr-payroll.html" class="nav-item"
+            ><i class="ti ti-cash" aria-hidden="true"></i>Payroll</a
+          >
+          <a href="hr-performance.html" class="nav-item"
+            ><i class="ti ti-chart-arrows" aria-hidden="true"></i>Performance</a
+          >
+          <a href="./Busiswa_TimeOff.html" class="nav-item active"
+            ><i class="ti ti-bed" aria-hidden="true"></i>Time Off</a
+          >
+          <a href="./Busiswa_IssuesReporting.html" class="nav-item"
+            ><i class="ti ti-alert-circle" aria-hidden="true"></i>Issues
+            Reporting</a
+          >
+        </nav>
+
+        <div class="sidebar-footer">
+          <button
+            class="user-chip"
+            id="userMenuBtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <div class="avatar">BB</div>
+            <div>
+              <div class="name">Busiswa Bala</div>
+              <div class="role">HR Manager</div>
+            </div>
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+      </aside>
+
+      <main class="page-content" id="mainContent">
+        <section class="page-header">
+          <h1>Time Off</h1>
+          <p>
+            Monitor employee leave across all departments and manage company
+            leave information.
+          </p>
+        </section>
+
+        <section class="page-body timeoff-body">
+          <div>
+            <div class="timeoff-grid">
+              <div class="card timeoff-card">
+                <div>
+                  <span class="card-label">Annual Leave</span>
+                  <div class="timeoff-value" id="annualLeaveCount">18</div>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Employees Currently Away</span>
+                  <strong>18</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Departments Affected</span>
+                  <strong>6</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Most Recent Employee</span>
+                  <strong>Sarah Johnson</strong>
+                </div>
+              </div>
+
+              <div class="card timeoff-card">
+                <div>
+                  <span class="card-label">Sick Leave</span>
+                  <div class="timeoff-value" id="sickLeaveCount">7</div>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Employees on Sick Leave</span>
+                  <strong>7</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Certificates Submitted</span>
+                  <strong>5</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Highest Department</span>
+                  <strong>Operations</strong>
+                </div>
+              </div>
+
+              <div class="card timeoff-card">
+                <div>
+                  <span class="card-label">Casual Leave</span>
+                  <div class="timeoff-value" id="casualLeaveCount">11</div>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Employees on Casual Leave</span>
+                  <strong>11</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Average Duration</span>
+                  <strong>2 Days</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Most Active Department</span>
+                  <strong>Sales</strong>
+                </div>
+              </div>
+
+              <div class="card timeoff-card">
+                <div>
+                  <span class="card-label">Family Responsibility</span>
+                  <div class="timeoff-value" id="familyLeaveCount">4</div>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Employees</span>
+                  <strong>4</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Reason Category</span>
+                  <strong>Bereavement</strong>
+                </div>
+                <div class="timeoff-meta">
+                  <span>Most Recent Department</span>
+                  <strong>Finance</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card timeoff-table-card">
+            <div class="card-heading">
+              <h3>Employees Currently Away</h3>
+              <div class="timeoff-filters">
+                <input
+                  id="timeoffSearch"
+                  type="text"
+                  placeholder="Search by name, ID, department or leave type..."
+                />
+                <select id="timeoffDepartment">
+                  <option value="All Departments">All Departments</option>
+                  <option value="Human Resources">Human Resources</option>
+                  <option value="Engineering">Engineering</option>
+                  <option value="Sales">Sales</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Operations">Operations</option>
+                  <option value="Customer Support">Customer Support</option>
+                  <option value="IT">IT</option>
+                  <option value="Administration">Administration</option>
+                </select>
+                <select id="timeoffType">
+                  <option value="All Types">All Types</option>
+                  <option value="Annual Leave">Annual Leave</option>
+                  <option value="Sick Leave">Sick Leave</option>
+                  <option value="Casual Leave">Casual Leave</option>
+                  <option value="Family Responsibility">
+                    Family Responsibility
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="timeoff-table">
+              <div class="timeoff-row timeoff-row--header">
+                <span>Employee ID</span>
+                <span>Employee Name</span>
+                <span>Department</span>
+                <span>Leave Type</span>
+                <span>Start Date</span>
+                <span>Return Date</span>
+                <span>Days Away</span>
+              </div>
+              <div id="employeeRows" class="timeoff-rows"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="Busiswa_Script_TimeOff.js"></script>
+  </body>
+</html>

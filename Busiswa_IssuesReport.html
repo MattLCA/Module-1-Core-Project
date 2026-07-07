@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HR-Issues Reporting</title>
+    <link rel="stylesheet" href="Busiswa_Style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <a href="#mainContent" class="skip-link">Skip to main content</a>
+
+      <button
+        class="sidebar-toggle"
+        id="sidebarToggle"
+        aria-label="Toggle navigation menu"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+      </button>
+
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark">HR</div>
+          <div>
+            <div class="brand-name">ModernTech</div>
+            <div class="brand-sub">HR Suite</div>
+          </div>
+        </div>
+
+        <div class="nav-section-label">Workspace</div>
+        <nav class="primary-nav" aria-label="Primary">
+          <a href="hr-dashboard.html" class="nav-item"
+            ><i class="ti ti-layout-grid" aria-hidden="true"></i>Dashboard</a
+          >
+          <a href="hr-employees.html" class="nav-item"
+            ><i class="ti ti-users" aria-hidden="true"></i>Employees</a
+          >
+          <a href="./Busiswa_Attendance.html" class="nav-item"
+            ><i class="ti ti-calendar-check" aria-hidden="true"></i
+            >Attendance</a
+          >
+          <a href="./Busiswa_LeaveRequest.html" class="nav-item"
+            ><i class="ti ti-beach" aria-hidden="true"></i>Leave</a
+          >
+          <a href="hr-payroll.html" class="nav-item"
+            ><i class="ti ti-cash" aria-hidden="true"></i>Payroll</a
+          >
+          <a href="hr-performance.html" class="nav-item"
+            ><i class="ti ti-chart-arrows" aria-hidden="true"></i>Performance</a
+          >
+          <a href="./Busiswa_TimeOff.html" class="nav-item"
+            ><i class="ti ti-alert-circle" aria-hidden="true"></i>Time Off</a
+          >
+
+          <a href="./Busiswa_IssuesReporting.html" class="nav-item active"
+            ><i class="ti ti-alert-circle" aria-hidden="true"></i>Issues Reporting</a
+          >
+        </nav>
+
+        <div class="sidebar-footer">
+          
+          <button
+            class="user-chip"
+            id="userMenuBtn"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <div class="avatar">BB</div>
+            <div>
+              <div class="name">Busiswa Bala</div>
+              <div class="role">HR Manager</div>
+            </div>
+            <i class="ti ti-chevron-down" aria-hidden="true"></i>
+          </button>
+        </div>
+      </aside>
+
+      <main class="page-content" id="mainContent">
+        <section class="page-header">
+          <h1>Issues Reporting</h1>
+          <p>Submit anonymous workplace concerns and monitor progress.</p>
+        </section>
+
+        <section class="page-body issues-body">
+          <div class="issues-panel-left">
+            <div class="card report-card">
+              <h2>Submit a Report</h2>
+              <form id="issueReportForm" class="issue-form">
+                <label>
+                  Category
+                  <select id="issueCategory" required>
+                    <option value="Workplace Safety">Workplace Safety</option>
+                    <option value="Harassment">Harassment</option>
+                    <option value="Policy Violation">Policy Violation</option>
+                    <option value="Compensation">Compensation</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+                <label>
+                  Priority
+                  <select id="issuePriority" required>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
+                  </select>
+                </label>
+                <label>
+                  Department
+                  <select id="issueDepartment" required>
+                    <option value="Engineering">Engineering</option>
+                    <option value="People Operations">People Operations</option>
+                    <option value="Operations">Operations</option>
+                    <option value="Customer Success">Customer Success</option>
+                    <option value="Sales">Sales</option>
+                    <option value="IT">Information Technology</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Finance">Finance</option>
+                    <option value="HR">Human Resources</option>
+                  </select>
+                </label>
+                <label>
+                  Subject
+                  <input
+                    id="issueSubject"
+                    type="text"
+                    placeholder="Brief subject line..."
+                    required
+                  />
+                </label>
+                <label>
+                  Description
+                  <textarea
+                    id="issueDescription"
+                    placeholder="Describe the issue in detail..."
+                    required
+                  ></textarea>
+                </label>
+                <label class="checkbox-field">
+                  <input id="submitAnonymous" type="checkbox" checked />
+                  <span>Submit anonymously</span>
+                </label>
+                <button type="submit" class="primary-button">
+                  Submit Report
+                </button>
+              </form>
+            </div>
+
+            <div class="card info-card">
+              <p>
+                Your identity is protected. Anonymous reports cannot be traced
+                back to you.
+              </p>
+            </div>
+          </div>
+
+          <div class="status-columns">
+            <div class="status-column">
+              <div class="status-heading">
+                <div class="status-label">
+                  <span class="status-pill review"></span>
+                  Under Review
+                </div>
+                <span id="underReviewCount">0</span>
+              </div>
+              <div id="underReviewList" class="status-list"></div>
+            </div>
+
+            <div class="status-column">
+              <div class="status-heading">
+                <div class="status-label">
+                  <span class="status-pill progress"></span>
+                  In Progress
+                </div>
+                <span id="inProgressCount">0</span>
+              </div>
+              <div id="inProgressList" class="status-list"></div>
+            </div>
+
+            <div class="status-column">
+              <div class="status-heading">
+                <div class="status-label">
+                  <span class="status-pill resolved"></span>
+                  Resolved
+                </div>
+                <span id="resolvedCount">0</span>
+              </div>
+              <div id="resolvedList" class="status-list"></div>
+            </div>
+          </div>
+
+          <aside class="overview-card">
+            <h3>Reports Overview</h3>
+            <div class="overview-grid">
+              <div class="overview-summary">
+                <span>Submitted</span>
+                <strong id="submittedCount">0</strong>
+              </div>
+              <div class="overview-summary">
+                <span>Under Review</span>
+                <strong id="reviewCount">0</strong>
+              </div>
+              <div class="overview-summary">
+                <span>In Progress</span>
+                <strong id="inProgressSummary">0</strong>
+              </div>
+              <div class="overview-summary">
+                <span>Resolved</span>
+                <strong id="resolvedSummary">0</strong>
+              </div>
+            </div>
+
+            <div class="donut-outer">
+              <div class="donut-chart" id="donutPercent">0%</div>
+              <small>Resolved</small>
+            </div>
+          </aside>
+        </section>
+
+        <section class="timeline-card">
+          <div class="timeline-heading">
+            <div>
+              <h2>Recent Activity Timeline</h2>
+            </div>
+          </div>
+          <div id="timelineList" class="timeline-list"></div>
+        </section>
+
+        <div class="activity-card">
+          <div class="activity-header">
+            <h2>Recent Activity</h2>
+            <a href="#">View All</a>
+          </div>
+          <div class="activity-table">
+            <div class="activity-row activity-row--header">
+              <span>Report ID</span>
+              <span>Category</span>
+              <span>Priority</span>
+              <span>Status</span>
+              <span>Date</span>
+            </div>
+            <div id="activityRows" class="activity-rows"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="Busiswa_Script_IssuesReporting.js"></script>
+  </body>
+</html>
