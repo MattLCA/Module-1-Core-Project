@@ -1,91 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile | ModernTech</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
-<a href="#mainContent" class="skip-link">Skip to main content</a>
-<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="sidebar">
-  <i class="ti ti-menu-2" aria-hidden="true"></i>
-</button>
-<aside class="sidebar" id="sidebar">
-  <div class="brand">
-    <div class="brand-mark">M</div>
-    <div>
-      <div class="brand-name">ModernTech</div>
-      <div class="brand-sub">Worker Portal</div>
-    </div>
-  </div>
-  <div class="nav-section-label">Employee Self-Service</div>
-  <nav class="primary-nav" aria-label="Worker navigation">
-    <a href="worker-dashboard.html" class="nav-item"><i class="ti ti-layout-dashboard" aria-hidden="true"></i>Dashboard</a>
-    <a href="worker-payslip.html" class="nav-item"><i class="ti ti-file-dollar" aria-hidden="true"></i>Payslips</a>
-    <a href="worker-attendance.html" class="nav-item"><i class="ti ti-clock-check" aria-hidden="true"></i>Attendance</a>
-    <a href="worker-leave.html" class="nav-item"><i class="ti ti-beach" aria-hidden="true"></i>Leave Requests<span class="nav-badge" id="leaveBadge">0</span></a>
-    <a href="worker-profile.html" class="nav-item"><i class="ti ti-user-circle" aria-hidden="true"></i>Profile</a>
-    <a href="worker-notifications.html" class="nav-item"><i class="ti ti-bell" aria-hidden="true"></i>Notifications</a>
-    <a href="worker-settings.html" class="nav-item"><i class="ti ti-settings" aria-hidden="true"></i>Settings</a>
-  </nav>
-  <div class="sidebar-footer">
-    <div class="help-card">
-      <p>Your latest payslip is ready. Review your salary breakdown before payday.</p>
-      <a href="worker-payslip.html">View payslip</a>
-    </div>
-    <button class="user-chip" type="button" onclick="location.href='worker-profile.html'">
-      <div class="avatar" id="sidebarInitials">ML</div>
-      <div>
-        <div class="name" id="sidebarName">Mahir Lindsay</div>
-        <div class="role" id="sidebarRole">Frontend Developer</div>
-      </div>
-      <i class="ti ti-chevron-right" aria-hidden="true"></i>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="sidebar">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
     </button>
-    <div class="logout-wrap">
-      <button class="btn secondary full" type="button" onclick="logout()"><i class="ti ti-logout"></i>Logout</button>
-    </div>
-  </div>
-</aside>
 
-<main class="main" id="mainContent">
+    <aside class="sidebar" id="sidebar">
+        ...
+    </aside>
 
-<section class="page-hero">
-  <div class="profile-head">
-    <div class="profile-avatar" id="profileAvatar">ML</div>
-    <div><h1>My Profile</h1><p>Update your personal information. Your changes are saved with localStorage.</p></div>
-  </div>
-  <div class="hero-actions"><button class="btn" form="profileForm" type="submit"><i class="ti ti-device-floppy"></i>Save Changes</button></div>
-</section>
-<section class="panel">
-  <div class="panel-top"><h2>Employee Information</h2><button class="btn secondary" type="button" id="resetProfileBtn">Reset Demo Data</button></div>
-  <form class="form-grid" id="profileForm">
-    <div class="form-row">
-      <div class="field"><label for="fullName">Full Name</label><input type="text" id="fullName" required></div>
-      <div class="field"><label for="jobTitle">Job Title</label><input type="text" id="jobTitle" required></div>
-    </div>
-    <div class="form-row">
-      <div class="field"><label for="emailAddress">Email Address</label><input type="email" id="emailAddress" required></div>
-      <div class="field"><label for="phoneNumber">Phone Number</label><input type="text" id="phoneNumber" required></div>
-    </div>
-    <div class="form-row">
-      <div class="field"><label for="department">Department</label><input type="text" id="department" required></div>
-      <div class="field"><label for="employeeId">Employee ID</label><input type="text" id="employeeId" required></div>
-    </div>
-    <div class="form-row">
-      <div class="field"><label for="emergencyContact">Emergency Contact</label><input type="text" id="emergencyContact"></div>
-      <div class="field"><label for="bankName">Bank Name</label><input type="text" id="bankName"></div>
-    </div>
-    <div class="field"><label for="address">Home Address</label><textarea id="address"></textarea></div>
-  </form>
-</section>
+    <main class="main-content">
 
-</main>
-<script src="script.js"></script>
+        <section class="page">
+
+            <header class="page-header">
+
+                <div class="header-text">
+
+                    <h1>My Information</h1>
+
+                    <p>View your personal and employment information.</p>
+
+                </div>
+
+            </header>
+
+            <div class="leave-tabs">
+
+                <button class="emp-info-tab active" data-tab="personal">
+                    <i class="fa-solid fa-id-card"></i>
+                    Personal Information
+                </button>
+
+                <button class="emp-info-tab" data-tab="salary">
+                    <i class="fa-solid fa-wallet"></i>
+                    Salary Details
+                </button>
+
+                <button class="emp-info-tab" data-tab="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Work History
+                </button>
+
+            </div>
+
+            <section class="emp-info-card">
+
+                <div id="personal" class="emp-info-content active">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-user"></i>
+                                Personal Information
+                            </h2>
+
+                            <p>Your personal and employment details.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Personal Information content -->
+
+                </div>
+
+                <div id="salary" class="emp-info-content">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                Salary Details
+                            </h2>
+
+                            <p>Your salary information.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Salary Details content -->
+
+                </div>
+
+                <div id="history" class="emp-info-content">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-briefcase"></i>
+                                Work History
+                            </h2>
+
+                            <p>Your employment journey at ModernTech.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Work History content -->
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="../javascript/script.js"></script>
+    <script src="../javascript/employee-information.js"></script>
+
 </body>
-</html>

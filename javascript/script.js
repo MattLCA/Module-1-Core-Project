@@ -5,13 +5,13 @@ const accounts = {
 };
 
 const defaultProfile = {
-  fullName: "Mahir Lindsay",
-  jobTitle: "Frontend Developer",
-  emailAddress: "mahir@moderntech.com",
+  fullName: "Keshav Naidoo",
+  jobTitle: "Sales Representative",
+  emailAddress: "keshav@moderntech.com",
   phoneNumber: "+27 71 234 5678",
-  department: "Technology",
+  department: "Sales",
   employeeId: "EMP-2048",
-  emergencyContact: "A. Lindsay - +27 72 555 0199",
+  emergencyContact: "A. Naidoo - +27 72 555 0199",
   bankName: "FNB",
   address: "Cape Town, South Africa"
 };
