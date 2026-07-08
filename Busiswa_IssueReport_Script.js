@@ -7,20 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const issueDescription = document.getElementById("issueDescription");
   const submitAnonymous = document.getElementById("submitAnonymous");
 
-  const underReviewCount = document.getElementById("underReviewCount");
-  const inProgressCount = document.getElementById("inProgressCount");
-  const resolvedCount = document.getElementById("resolvedCount");
   const submittedCount = document.getElementById("submittedCount");
   const reviewCount = document.getElementById("reviewCount");
   const inProgressSummary = document.getElementById("inProgressSummary");
   const resolvedSummary = document.getElementById("resolvedSummary");
   const donutPercent = document.getElementById("donutPercent");
 
-  const underReviewList = document.getElementById("underReviewList");
-  const inProgressList = document.getElementById("inProgressList");
-  const resolvedList = document.getElementById("resolvedList");
+  const reportsTableBody = document.getElementById("reportsTableBody");
   const timelineList = document.getElementById("timelineList");
-  const activityRows = document.getElementById("activityRows");
 
   const storedData = localStorage.getItem("bs_issues_data");
   let issues = storedData ? JSON.parse(storedData) : [];
@@ -50,22 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
     return Math.round((totals.resolved / totals.submitted) * 100);
   }
 
-  function createIssueCard(item) {
-    const card = document.createElement("div");
-    card.className = "issue-card";
-    card.innerHTML = `
-      <h4>${item.title}</h4>
-      <div class="issue-meta">
-        <span>${item.department}</span>
-        <span class="priority-pill ${item.priority}">${item.priority}</span>
-      </div>
-      <p>${item.description}</p>
-      <div class="issue-meta">
-        <span>${item.reporter}</span>
-        <span>${item.date}</span>
-      </div>
-    `;
-    return card;
+  function getStatusBadgeClass(status) {
+    if (status === "Under Review") return "review";
+    if (status === "In Progress") return "progress";
+    return "resolved";
   }
 
   function createTimelineItem(item) {
@@ -85,9 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderDashboard() {
     const counts = getStatusCounts();
 
-    underReviewCount.textContent = counts.review;
-    inProgressCount.textContent = counts.inProgress;
-    resolvedCount.textContent = counts.resolved;
     submittedCount.textContent = counts.submitted;
     reviewCount.textContent = counts.review;
     inProgressSummary.textContent = counts.inProgress;
@@ -96,21 +75,21 @@ document.addEventListener("DOMContentLoaded", () => {
     donutPercent.textContent = `${getResolvedPercent()}%`;
     donutPercent.parentElement.style.background = `conic-gradient(#3ecf8e 0 ${getResolvedPercent()}%, #e7e7f4 ${getResolvedPercent()}% 100%)`;
 
-    underReviewList.innerHTML = "";
-    inProgressList.innerHTML = "";
-    resolvedList.innerHTML = "";
-    timelineList.innerHTML = "";
-
+    // Populate reports table
+    reportsTableBody.innerHTML = "";
     issues.forEach((issue) => {
-      const card = createIssueCard(issue);
-
-      if (issue.status === "Under Review") {
-        underReviewList.appendChild(card);
-      } else if (issue.status === "In Progress") {
-        inProgressList.appendChild(card);
-      } else if (issue.status === "Resolved") {
-        resolvedList.appendChild(card);
-      }
+      const row = document.createElement("tr");
+      const statusBadgeClass = getStatusBadgeClass(issue.status);
+      row.innerHTML = `
+        <td>${issue.reference}</td>
+        <td>${issue.title}</td>
+        <td>${issue.category}</td>
+        <td>${issue.department}</td>
+        <td><span class="priority-badge ${issue.priority}">${issue.priority}</span></td>
+        <td><span class="status-badge ${statusBadgeClass}">${issue.status}</span></td>
+        <td>${issue.submittedAt}</td>
+      `;
+      reportsTableBody.appendChild(row);
     });
 
     const timelineItems = [...issues]
@@ -129,14 +108,10 @@ document.addEventListener("DOMContentLoaded", () => {
               : "review",
       }));
 
+    timelineList.innerHTML = "";
     timelineItems.forEach((item) =>
       timelineList.appendChild(createTimelineItem(item)),
     );
-
-    activityRows.innerHTML = "";
-    issues.slice(0, 5).forEach((issue) => {
-      activityRows.appendChild(createActivityRow(issue));
-    });
   }
 
   function createActivityRow(issue) {

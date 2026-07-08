@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       <strong>${request.employee}</strong> (${request.empId})<br />
       ${request.department} • ${request.leaveType} • ${request.duration}<br />
       ${request.startDate} - ${request.endDate}<br />
-      Submitted: ${request.submitted} • Manager: ${request.manager}
+      Submitted: ${request.submitted} • Manager:Busiswa Bala
     `;
 
     if (action === "approve") {
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <span>${request.duration}</span>
         <span>${request.reason}</span>
         <span>${request.submitted}</span>
-        <span>${request.manager}</span>
+        <span>Busiswa Bala</span>
         <span>${request.status}</span>
         <span class="leave-action">
           <button class="approve">Approve</button>

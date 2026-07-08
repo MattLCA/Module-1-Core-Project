@@ -156,41 +156,6 @@
             </div>
           </div>
 
-          <div class="status-columns">
-            <div class="status-column">
-              <div class="status-heading">
-                <div class="status-label">
-                  <span class="status-pill review"></span>
-                  Under Review
-                </div>
-                <span id="underReviewCount">0</span>
-              </div>
-              <div id="underReviewList" class="status-list"></div>
-            </div>
-
-            <div class="status-column">
-              <div class="status-heading">
-                <div class="status-label">
-                  <span class="status-pill progress"></span>
-                  In Progress
-                </div>
-                <span id="inProgressCount">0</span>
-              </div>
-              <div id="inProgressList" class="status-list"></div>
-            </div>
-
-            <div class="status-column">
-              <div class="status-heading">
-                <div class="status-label">
-                  <span class="status-pill resolved"></span>
-                  Resolved
-                </div>
-                <span id="resolvedCount">0</span>
-              </div>
-              <div id="resolvedList" class="status-list"></div>
-            </div>
-          </div>
-
           <aside class="overview-card">
             <h3>Reports Overview</h3>
             <div class="overview-grid">
@@ -217,6 +182,26 @@
               <small>Resolved</small>
             </div>
           </aside>
+
+          <div class="reports-table-card full-width">
+            <h3>All Reports</h3>
+            <div class="reports-table-container">
+              <table class="reports-table">
+                <thead>
+                  <tr>
+                    <th>Report ID</th>
+                    <th>Subject</th>
+                    <th>Category</th>
+                    <th>Department</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody id="reportsTableBody"></tbody>
+              </table>
+            </div>
+          </div>
         </section>
 
         <section class="timeline-card">
@@ -227,26 +212,9 @@
           </div>
           <div id="timelineList" class="timeline-list"></div>
         </section>
-
-        <div class="activity-card">
-          <div class="activity-header">
-            <h2>Recent Activity</h2>
-            <a href="#">View All</a>
-          </div>
-          <div class="activity-table">
-            <div class="activity-row activity-row--header">
-              <span>Report ID</span>
-              <span>Category</span>
-              <span>Priority</span>
-              <span>Status</span>
-              <span>Date</span>
-            </div>
-            <div id="activityRows" class="activity-rows"></div>
-          </div>
-        </div>
       </main>
     </div>
 
-    <script src="./Busiswa_issueReport_Script.js"></script>
+    <script src="./Busiswa_IssueReport_Script.js"></script>
   </body>
 </html>
