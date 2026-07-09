@@ -1,3 +1,12 @@
+const loggedInUser =
+JSON.parse(localStorage.getItem("loggedInUser"));
+
+if(!loggedInUser){
+
+    window.location.href = "login.html";
+
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ================= Shared helpers ================= */
@@ -468,3 +477,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if(logoutBtn){
+
+    logoutBtn.addEventListener("click", () => {
+
+        const confirmLogout = confirm(
+            "Are you sure you want to log out?"
+        );
+
+        if(confirmLogout){
+
+            localStorage.removeItem("loggedInUser");
+
+            window.location.href = "login.html";
+
+        }
+
+    });
+
+}

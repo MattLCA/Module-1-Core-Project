@@ -409,3 +409,32 @@ td { padding: 14px 12px 14px 0; font-size: 13.5px; border-top: 1px solid var(--l
   .modal-card { border: none; box-shadow: none; width: 100%; max-width: 100%; padding: 0; }
   .modal-close-icon, .modal-footer-actions { display: none !important; }
 }
+
+.logout-btn{
+    width:100%;
+    margin-top:12px;
+    padding:10px 14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#ff8600;
+    color:white;
+
+    cursor:pointer;
+
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.logout-btn:hover{
+    background:#e97800;
+}

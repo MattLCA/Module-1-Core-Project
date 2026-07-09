@@ -44,13 +44,17 @@
 
     <div class="sidebar-footer">
       <button class="user-chip" id="userMenuBtn" aria-haspopup="true" aria-expanded="false">
-        <div class="avatar">JM</div>
+        <div class="avatar">MA</div>
         <div>
-          <div class="name">Jordan Mensah</div>
+          <div class="name">Matthew Adriaanse</div>
           <div class="role">HR Manager</div>
         </div>
         <i class="ti ti-chevron-down" aria-hidden="true"></i>
       </button>
+      <button id="logoutBtn" class="logout-btn">
+        <i class="ti ti-logout"></i>
+        Logout
+    </button>
     </div>
   </aside>
 
@@ -143,20 +147,23 @@
         <div class="chip" id="sortChip"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i>Sort: name</div>
       </div>
     </div>
+    <div class="table-wrapper">
 
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">Employee</th>
-          <th scope="col">Department</th>
-          <th scope="col">Role</th>
-          <th scope="col">Start date</th>
-          <th scope="col">Status</th>
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody id="employeeTableBody"></tbody>
-    </table>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Employee</th>
+              <th scope="col">Department</th>
+              <th scope="col">Role</th>
+              <th scope="col">Start date</th>
+              <th scope="col">Status</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody id="employeeTableBody"></tbody>
+        </table>
+
+    </div>
 
     <div class="table-footer">
       <div class="info" id="footerInfo">Showing 0–0 of 0 employees</div>
