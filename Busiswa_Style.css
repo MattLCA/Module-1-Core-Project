@@ -422,6 +422,22 @@ nav.primary-nav {
   color: #161d3b;
 }
 
+.leave-table-container {
+  overflow-x: auto;
+}
+
+.leave-data-table {
+  width: 100%;
+  min-width: 1720px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.leave-data-table td {
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
 .leave-table {
   overflow-x: auto;
 }
@@ -468,16 +484,16 @@ nav.primary-nav {
   color: #5e6485;
   font-size: 0.95rem;
 }
-.leave-row span:first-child{
-    font-weight:600;
-    color:#1d2550;
+.leave-row span:first-child {
+  font-weight: 600;
+  color: #1d2550;
 }
 .leave-row span:nth-child(5),
 .leave-row span:nth-child(6),
 .leave-row span:nth-child(5),
 .leave-row span:nth-child(6),
 .leave-row span:nth-child(9) {
-    white-space: nowrap;
+  white-space: nowrap;
 }
 
 .leave-badge {
@@ -1145,6 +1161,80 @@ nav.primary-nav {
   font-size: 0.9rem;
 }
 
+.donut-ring {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.donut-hole {
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  background: #f7f8ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-hole strong {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #161d3b;
+  line-height: 1;
+}
+
+.donut-hole small {
+  color: #6b709b;
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+.donut-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  width: 100%;
+}
+
+.donut-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #4f537d;
+}
+
+.donut-legend li strong {
+  margin-left: auto;
+  color: #161d3b;
+  font-weight: 700;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.legend-resolved {
+  background: #3ecf8e;
+}
+
+.legend-progress {
+  background: #758bfd;
+}
+
+.legend-review {
+  background: #ff9f43;
+}
+
 .donut-chart {
   width: 120px;
   height: 120px;
@@ -1432,6 +1522,20 @@ nav.primary-nav {
   font-size: 0.95rem;
 }
 
+.timeoff-row span {
+  color: #5e6485;
+  font-size: 0.95rem;
+}
+
+.timeoff-row .emp-cell {
+  gap: 10px;
+}
+
+.timeoff-row .emp-name {
+  font-weight: 600;
+  color: #1d2550;
+}
+
 @media (max-width: 1220px) {
   .timeoff-body {
     grid-template-columns: 1fr;
@@ -1595,24 +1699,9 @@ nav.primary-nav {
   color: #161d3b;
 }
 
-.donut-chart {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+#donut.donut-ring {
   background: conic-gradient(#5b4df0 0 68%, #ff9f43 68% 88%, #e7e7f4 88% 100%);
-  display: grid;
-  place-items: center;
-  color: #161d3b;
-  font-size: 1.3rem;
-  font-weight: 500;
   margin: 0 auto;
-}
-
-.donut-chart small {
-  display: block;
-  font-size: 0.85rem;
-  color: #5e6485;
-  font-weight: 400;
 }
 
 .analytics-list {
@@ -1826,12 +1915,23 @@ td {
 /* Status Pills */
 
 .status-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 4px 9px;
   border-radius: 20px;
   font-size: 11px;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.status-pill::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
 }
 
 .status-pill.calc {
@@ -1946,6 +2046,12 @@ td {
 }
 
 .status-pill.cancelled {
+  background: rgba(201, 72, 72, 0.12);
+  color: #c94848;
+}
+
+.status-pill.denied,
+.status-pill.declined {
   background: rgba(201, 72, 72, 0.12);
   color: #c94848;
 }

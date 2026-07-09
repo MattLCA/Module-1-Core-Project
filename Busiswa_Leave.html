@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HR-Leave Request</title>
     <link rel="stylesheet" href="Busiswa_Style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+    />
   </head>
   <body>
     <div class="app-shell">
@@ -133,25 +137,41 @@
             <div class="leave-table-header">
               <h3>Leave Requests</h3>
             </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Employee</th>
-                  <th>Emp ID</th>
-                  <th>Department</th>
-                  <th>Leave Type</th>
-                  <th>Start Date</th>
-                  <th>End Date</th>
-                  <th>Duration</th>
-                  <th>Reason</th>
-                  <th>Submitted</th>
-                  <th>Manager</th>
-                  <th>Status</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody id="leaveRows"></tbody>
-            </table>
+            <div class="leave-table-container">
+              <table class="leave-data-table">
+                <colgroup>
+                  <col style="width: 200px" />
+                  <col style="width: 70px" />
+                  <col style="width: 130px" />
+                  <col style="width: 190px" />
+                  <col style="width: 110px" />
+                  <col style="width: 110px" />
+                  <col style="width: 90px" />
+                  <col style="width: 220px" />
+                  <col style="width: 110px" />
+                  <col style="width: 130px" />
+                  <col style="width: 150px" />
+                  <col style="width: 210px" />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>Employee</th>
+                    <th>Emp ID</th>
+                    <th>Department</th>
+                    <th>Leave Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Duration</th>
+                    <th>Reason</th>
+                    <th>Submitted</th>
+                    <th>Manager</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="leaveRows"></tbody>
+              </table>
+            </div>
           </div>
         </section>
       </main>

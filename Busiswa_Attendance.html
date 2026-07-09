@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HR-Attendance</title>
     <link rel="stylesheet" href="Busiswa_Style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   </head>
   <body>
     <div class="app-shell">
@@ -134,9 +135,11 @@
 
             <div class="card analytics-card">
               <div class="analytics-header">Attendance Analytics</div>
-              <div id="donut" class="donut-chart">
-                <span id="donutPercent">68%</span>
-                <small>Present</small>
+              <div id="donut" class="donut-ring">
+                <div class="donut-hole">
+                  <strong id="donutPercent">68%</strong>
+                  <small>Present</small>
+                </div>
               </div>
               <ul class="analytics-list">
                 <li>

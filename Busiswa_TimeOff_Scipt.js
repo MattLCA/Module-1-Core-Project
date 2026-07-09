@@ -79,6 +79,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
+  function getInitials(name) {
+    return name
+      .split(" ")
+      .map((part) => part[0])
+      .join("")
+      .toUpperCase();
+  }
+
+  function leaveTypeClass(type) {
+    return type.toLowerCase().replace(/\s+/g, "-");
+  }
+
   function renderRows() {
     const searchValue = timeoffSearch.value.toLowerCase();
     const departmentValue = timeoffDepartment.value;
@@ -108,9 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
       row.className = "timeoff-row";
       row.innerHTML = `
         <span>${item.id}</span>
-        <span>${item.name}</span>
+        <span class="emp-cell">
+          <span class="emp-avatar">${getInitials(item.name)}</span>
+          <span class="emp-name">${item.name}</span>
+        </span>
         <span>${item.department}</span>
-        <span><span class="leave-badge ${item.leaveType.replace(/\s+/g, " ").replace(/ /g, "\\ ")}">${item.leaveType}</span></span>
+        <span><span class="status-pill ${leaveTypeClass(item.leaveType)}">${item.leaveType}</span></span>
         <span>${item.startDate}</span>
         <span>${item.returnDate}</span>
         <span>${item.daysAway}</span>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HR-Issues Reporting</title>
     <link rel="stylesheet" href="Busiswa_Style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
   </head>
   <body>
     <div class="app-shell">
@@ -178,8 +179,26 @@
             </div>
 
             <div class="donut-outer">
-              <div class="donut-chart" id="donutPercent">0%</div>
-              <small>Resolved</small>
+              <div class="donut-ring" id="donutChart">
+                <div class="donut-hole">
+                  <strong id="donutTotal">0</strong>
+                  <small>Total</small>
+                </div>
+              </div>
+              <ul class="donut-legend">
+                <li>
+                  <span class="legend-dot legend-resolved"></span
+                  >Resolved<strong id="legendResolved">0</strong>
+                </li>
+                <li>
+                  <span class="legend-dot legend-progress"></span>In
+                  Progress<strong id="legendProgress">0</strong>
+                </li>
+                <li>
+                  <span class="legend-dot legend-review"></span>Under
+                  Review<strong id="legendReview">0</strong>
+                </li>
+              </ul>
             </div>
           </aside>
 

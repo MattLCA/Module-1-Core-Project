@@ -11,19 +11,81 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewCount = document.getElementById("reviewCount");
   const inProgressSummary = document.getElementById("inProgressSummary");
   const resolvedSummary = document.getElementById("resolvedSummary");
-  const donutPercent = document.getElementById("donutPercent");
+
+  const donutChart = document.getElementById("donutChart");
+  const donutTotal = document.getElementById("donutTotal");
+  const legendResolved = document.getElementById("legendResolved");
+  const legendProgress = document.getElementById("legendProgress");
+  const legendReview = document.getElementById("legendReview");
 
   const reportsTableBody = document.getElementById("reportsTableBody");
   const timelineList = document.getElementById("timelineList");
 
-  const storedData = localStorage.getItem("bs_issues_data");
-  let issues = storedData ? JSON.parse(storedData) : [];
+  const seedIssues = [
+    {
+      reference: "HR-041",
+      title: "hi",
+      description: "No description provided.",
+      category: "Workplace Safety",
+      priority: "Low",
+      department: "Engineering",
+      reporter: "Anonymous",
+      status: "Resolved",
+      createdAt: "2026-07-03T09:00:00.000Z",
+      submittedAt: "03 Jul",
+    },
+    {
+      reference: "HR-042",
+      title: "Urgent",
+      description: "No description provided.",
+      category: "Harassment",
+      priority: "Critical",
+      department: "Engineering",
+      reporter: "Anonymous",
+      status: "Under Review",
+      createdAt: "2026-07-03T10:00:00.000Z",
+      submittedAt: "03 Jul",
+    },
+    {
+      reference: "HR-043",
+      title: "hi",
+      description: "No description provided.",
+      category: "Workplace Safety",
+      priority: "Low",
+      department: "Engineering",
+      reporter: "Anonymous",
+      status: "Resolved",
+      createdAt: "2026-07-03T11:00:00.000Z",
+      submittedAt: "03 Jul",
+    },
+    {
+      reference: "HR-044",
+      title: "Verbal Abuse",
+      description: "No description provided.",
+      category: "Other",
+      priority: "Medium",
+      department: "Customer Success",
+      reporter: "Anonymous",
+      status: "In Progress",
+      createdAt: "2026-07-03T12:00:00.000Z",
+      submittedAt: "03 Jul",
+    },
+    {
+      reference: "HR-045",
+      title: "unattended cables",
+      description: "No description provided.",
+      category: "Workplace Safety",
+      priority: "Medium",
+      department: "IT",
+      reporter: "Anonymous",
+      status: "In Progress",
+      createdAt: "2026-07-07T09:00:00.000Z",
+      submittedAt: "07 Jul",
+    },
+  ];
 
-  const statusMap = {
-    review: "Under Review",
-    inProgress: "In Progress",
-    resolved: "Resolved",
-  };
+  const storedData = localStorage.getItem("bs_issues_data");
+  let issues = storedData ? JSON.parse(storedData) : seedIssues;
 
   function saveIssues() {
     localStorage.setItem("bs_issues_data", JSON.stringify(issues));
@@ -36,12 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
       inProgress: issues.filter((item) => item.status === "In Progress").length,
       resolved: issues.filter((item) => item.status === "Resolved").length,
     };
-  }
-
-  function getResolvedPercent() {
-    const totals = getStatusCounts();
-    if (!totals.submitted) return 0;
-    return Math.round((totals.resolved / totals.submitted) * 100);
   }
 
   function getStatusBadgeClass(status) {
@@ -72,8 +128,17 @@ document.addEventListener("DOMContentLoaded", () => {
     inProgressSummary.textContent = counts.inProgress;
     resolvedSummary.textContent = counts.resolved;
 
-    donutPercent.textContent = `${getResolvedPercent()}%`;
-    donutPercent.parentElement.style.background = `conic-gradient(#3ecf8e 0 ${getResolvedPercent()}%, #e7e7f4 ${getResolvedPercent()}% 100%)`;
+    const total = counts.submitted || 1;
+    const resolvedEnd = (counts.resolved / total) * 100;
+    const progressEnd = resolvedEnd + (counts.inProgress / total) * 100;
+    const reviewEnd = progressEnd + (counts.review / total) * 100;
+
+    donutChart.style.background = `conic-gradient(#3ecf8e 0 ${resolvedEnd}%, #758bfd ${resolvedEnd}% ${progressEnd}%, #ff9f43 ${progressEnd}% ${reviewEnd}%, #e7e7f4 ${reviewEnd}% 100%)`;
+
+    donutTotal.textContent = counts.submitted;
+    legendResolved.textContent = counts.resolved;
+    legendProgress.textContent = counts.inProgress;
+    legendReview.textContent = counts.review;
 
     // Populate reports table
     reportsTableBody.innerHTML = "";
@@ -112,19 +177,6 @@ document.addEventListener("DOMContentLoaded", () => {
     timelineItems.forEach((item) =>
       timelineList.appendChild(createTimelineItem(item)),
     );
-  }
-
-  function createActivityRow(issue) {
-    const row = document.createElement("div");
-    row.className = "activity-row";
-    row.innerHTML = `
-      <span>${issue.reference}</span>
-      <span>${issue.category}</span>
-      <span>${issue.priority}</span>
-      <span>${issue.status}</span>
-      <span>${issue.submittedAt}</span>
-    `;
-    return row;
   }
 
   function createIssueReference() {
