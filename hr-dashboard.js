@@ -394,7 +394,11 @@ document.addEventListener('DOMContentLoaded', () => {
       const dept = document.getElementById('empDeptInput').value;
       const start = document.getElementById('empStartInput').value;
 
-      if (!name || !role || !dept || !start) {
+      const salaryInput = document.getElementById('empSalaryInput');
+      const salaryRaw = salaryInput ? salaryInput.value.trim() : '';
+      const salary = Number(salaryRaw);
+
+      if (!name || !role || !dept || !start || !salaryRaw || isNaN(salary) || salary <= 0) {
         addEmployeeError.hidden = false;
         return;
       }
@@ -403,7 +407,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const newEmployeeData = {
         name, email: '', dept, role, start,
         status: 'onboarding',
-        salary: null,
+        salary: salary,
+        baseSalary: salary,
+        payroll: {
+          hoursWorked: 160,
+          leaveDeductions: 0,
+          finalSalary: salary
+        },
         attendance: [],
         leaveRequests: []
       };

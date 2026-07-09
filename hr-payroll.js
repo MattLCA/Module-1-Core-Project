@@ -124,23 +124,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buildEmployeeRecords() {
 
-    const employees =
+    function withPayrollDefaults(emp){
+
+        // If employee came from the Employees page "Add employee" form
+        // (or is otherwise missing payroll data), create sensible
+        // defaults so payroll never crashes on a missing field.
+        if (!emp.payroll) {
+            emp.payroll = {
+                hoursWorked: 160,
+                leaveDeductions: 0,
+                finalSalary: emp.salary || emp.baseSalary || 0
+            };
+        }
+
+        return emp;
+
+    }
+
+    const rawEmployees =
         (typeof HRStorage !== "undefined")
-            ? HRStorage.buildEmployees(employeeData.employees, function(emp){
-
-                // If employee came from Employees page, create payroll data
-                if (!emp.payroll) {
-                    emp.payroll = {
-                        hoursWorked: 160,
-                        leaveDeductions: 0,
-                        finalSalary: emp.salary || emp.baseSalary || 0
-                    };
-                }
-
-                return emp;
-
-            })
+            ? HRStorage.buildEmployees(employeeData.employees, withPayrollDefaults)
             : employeeData.employees;
+
+    // Belt-and-braces: whatever HRStorage.buildEmployees() did internally,
+    // guarantee every employee has payroll data before we read from it.
+    // This covers employees merged in from localStorage that may bypass
+    // the normalize callback above.
+    const employees = rawEmployees.map(withPayrollDefaults);
 
     return employees.map(function(emp){
 
