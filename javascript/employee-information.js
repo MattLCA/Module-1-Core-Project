@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-fetch("data/employee_info.json")
+fetch("../data/employee_info.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("JSON could not be loaded.");

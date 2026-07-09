@@ -76,16 +76,16 @@
 
 
     <!-- Main Content -->
-    <main class="main-content">
+    <!-- <main class="emp-profile-main-content">
 
-        <section class="page">
+        <section class="emp-profile-page"> -->
 
 
             <!-- PAGE HEADER -->
 
-            <header class="page-header">
+            <!-- <header class="emp-profile-page-header">
 
-                <div class="header-text">
+                <div class="emp-profile-header-text">
 
                     <h1>My Information</h1>
 
@@ -93,14 +93,39 @@
 
                 </div>
 
-            </header>
+            </header> -->
+
+
+
+    <main class="main" id="mainContent">
+
+        <!-- Main Content -->
+        <main class="emp-profile-main-content">
+
+            <section class="emp-profile-page">
+
+        <!-- ==========================
+             PAGE HEADER
+        =========================== -->
+
+                <header class="emp-profile-page-header">
+                    <section class="emp-profile-page-hero panel">
+                        <div class="emp-profile-header-text">
+
+                            <h1>Profile</h1>
+
+                            <p>View your personal and employment information.</p>
+
+                        </div>
+                    </section>
+                </header>
 
             <!-- Tabs -->
 
 
-            <div class="leave-tabs">
+            <div class="emp-profile-personalinfo-tab">
 
-                <button class="emp-info-tab active" data-tab="personal">
+                <button class="emp-profile-tab active" data-tab="personal">
 
                     <i class="fa-solid fa-id-card"></i>
 
@@ -108,7 +133,7 @@
 
                 </button>
 
-                <button class="emp-info-tab" data-tab="salary">
+                <button class="emp-profile-tab" data-tab="salary">
 
                     <i class="fa-solid fa-wallet"></i>
 
@@ -116,7 +141,7 @@
 
                 </button>
 
-                <button class="emp-info-tab" data-tab="history">
+                <button class="emp-profile-tab" data-tab="history">
 
                     <i class="fa-solid fa-clock-rotate-left"></i>
 
@@ -128,15 +153,15 @@
 
             <!-- Main Card -->
 
-            <section class="emp-info-card">
+            <section class="emp-profile-card">
 
                 <!-- =========================
                  PERSONAL INFORMATION
             ========================== -->
 
-                <div id="personal" class="emp-info-content active">
+                <div id="personal" class="emp-profile-content active">
 
-                    <div class="emp-info-title">
+                    <div class="emp-profile-title">
 
                         <div>
 
@@ -154,9 +179,9 @@
 
                     </div>
 
-                    <div class="emp-info-grid">
+                    <div class="emp-profile-grid">
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Name</span>
 
@@ -164,7 +189,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Employee ID</span>
 
@@ -172,7 +197,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Department</span>
 
@@ -180,7 +205,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Position</span>
 
@@ -188,7 +213,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Email</span>
 
@@ -196,7 +221,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Employment Status</span>
 
@@ -216,9 +241,9 @@
                  SALARY DETAILS
             ========================== -->
 
-                <div id="salary" class="emp-info-content">
+                <div id="salary" class="emp-profile-content">
 
-                    <div class="emp-info-title">
+                    <div class="emp-profile-title">
 
                         <div>
 
@@ -236,9 +261,9 @@
 
                     </div>
 
-                    <div class="emp-info-grid">
+                    <div class="emp-profile-grid">
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Basic Salary</span>
 
@@ -246,7 +271,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Salary Type</span>
 
@@ -254,7 +279,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Payment Method</span>
 
@@ -262,7 +287,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Next Payday</span>
 
@@ -270,7 +295,7 @@
 
                         </div>
 
-                        <div class="emp-info-item">
+                        <div class="emp-profile-item">
 
                             <span>Payslips</span>
 
@@ -290,9 +315,9 @@
                  WORK HISTORY
             ========================== -->
 
-                <div id="history" class="emp-info-content">
+                <div id="history" class="emp-profile-content">
 
-                    <div class="emp-info-title">
+                    <div class="emp-profile-title">
 
                         <div>
 
@@ -310,25 +335,25 @@
 
                     </div>
 
-                    <div class="emp-timeline">
+                    <div class="emp-profile-timeline">
 
-                        <div class="timeline-item">
+                        <div class="emp-profile-timeline-item">
 
-                            <div class="timeline-dot"></div>
+                            <div class="emp-profile-timeline-dot"></div>
 
                             <div>
 
                                 <h4>Current Employment</h4>
 
-                                <p id="empHistory"></p>
+                                <p id="emp-profile-empHistory"></p>
 
                             </div>
 
                         </div>
 
-                        <div class="timeline-item">
+                        <div class="emp-profile-timeline-item">
 
-                            <div class="timeline-dot"></div>
+                            <div class="emp-profile-timeline-dot"></div>
 
                             <div>
 
@@ -340,15 +365,15 @@
 
                         </div>
 
-                        <div class="timeline-item">
+                        <div class="emp-profile-timeline-item">
 
-                            <div class="timeline-dot"></div>
+                            <div class="emp-profile-timeline-dot"></div>
 
                             <div>
 
                                 <h4>Current Position</h4>
 
-                                <p id="empPositionHistory"></p>
+                                <p id="emp-profile-empPositionHistory"></p>
 
                             </div>
 

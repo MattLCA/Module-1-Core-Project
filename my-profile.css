@@ -717,6 +717,10 @@ td {
     }
 }
 
+
+/* ANGELA CSS */
+
+
 * {
     margin: 0;
     padding: 0;
@@ -749,7 +753,7 @@ a {
     color: inherit;
 }
 
-.btn-primary {
+/* .btn-primary {
     background: var(--orange);
     color: white;
     border: none;
@@ -770,7 +774,6 @@ a {
 }
 
 
-/* Style */
 .sidebar {
     width: 230px;
     min-height: 100vh;
@@ -856,9 +859,9 @@ a {
     display:flex;
     flex-direction:column;
     gap:2px;
-}
+} */
 
-.profile-card{
+/* .profile-card{
     display:flex;
     align-items:center;
     gap:10px;
@@ -908,44 +911,44 @@ a {
 .logout-card h4{
     font-size:.90rem;
     font-weight:500;
-}
+} */
 
 /* LAYOUT */
-/* body{
+body{
     display:flex;
     height:100vh;
     overflow:hidden;
     background:#F1F2F6;
 }
 
-.main-content{
+.emp-profile-main-content{
     flex:1;
     display:flex;
     flex-direction:column;
     overflow:hidden;
 }
 
-.page{
+.emp-profile-page{
     flex:1;
     overflow-y:auto;
     padding:32px;
 }
 
-.page-header{
+.emp-profile-page-header{
     margin-bottom:24px;
 }
 
-.page-header h1{
+.emp-profile-page-header h1{
     font-size:2rem;
     color:#27187E;
     font-weight:600;
 }
 
-.page-header p{
+.emp-profile-page-header p{
     margin-top:4px;
     color:#6B7280;
     font-size:.95rem;
-} */
+}
 
 
 
@@ -969,7 +972,7 @@ body{
    MAIN CONTENT
 ========================================== */
 
-.main-content{
+.emp-profile-main-content{
 
     flex:1;
 
@@ -981,7 +984,7 @@ body{
 
 }
 
-.page{
+.emp-profile-page{
 
     flex:1;
 
@@ -995,7 +998,7 @@ body{
    PAGE HEADER
 ========================================== */
 
-.page-header{
+/* .emp-profile-page-header{
 
     display:flex;
 
@@ -1005,9 +1008,9 @@ body{
 
     margin-bottom:35px;
 
-}
+} */
 
-.header-text h1{
+.emp-profile-header-text h1{
 
     color:#27187E;
 
@@ -1017,7 +1020,7 @@ body{
 
 }
 
-.header-text p{
+.emp-profile-header-text p{
 
     margin-top:6px;
 
@@ -1025,7 +1028,7 @@ body{
 
 }
 
-.header-actions{
+.emp-profile-header-actions{
 
     display:flex;
 
@@ -1130,7 +1133,7 @@ body{
 }
 
 
-.main-content{
+.emp-profile-main-content{
 
     display:flex;
 
@@ -1144,7 +1147,7 @@ body{
 
 }
 
-.page{
+.emp-profile-page{
 
     display:flex;
 
@@ -1480,7 +1483,7 @@ BALANCE CARDS
 } */
 
 
-.emp-info-grid{
+.emp-profile-grid{
 
     display:grid;
 
@@ -1490,7 +1493,7 @@ BALANCE CARDS
 
 }
 
-.emp-info-item{
+.emp-profile-item{
 
     background:#F8F9FD;
 
@@ -1502,7 +1505,7 @@ BALANCE CARDS
 
 }
 
-.emp-info-item span{
+.emp-profile-item span{
 
     display:flex;
 
@@ -1518,7 +1521,7 @@ BALANCE CARDS
 
 }
 
-.emp-info-item strong{
+.emp-profile-item strong{
 
     color:var(--primary);
 
@@ -2041,7 +2044,7 @@ LEAVE MODAL
 
 /* Tabs */
 
-.emp-info-tabs {
+.emp-profile-tabs {
 
     display: flex;
 
@@ -2051,7 +2054,7 @@ LEAVE MODAL
 
 }
 
-.emp-info-tab {
+.emp-profile-tab {
 
     display: flex;
 
@@ -2081,13 +2084,13 @@ LEAVE MODAL
 
 }
 
-.emp-info-tab i {
+.emp-profile-tab i {
 
     color: white;
 
 }
 
-.emp-info-tab:hover {
+.emp-profile-tab:hover {
 
     background: var(--secondary);
 
@@ -2095,7 +2098,7 @@ LEAVE MODAL
 
 /* Active Tab */
 
-.emp-info-tab.active {
+.emp-profile-tab.active {
 
     background: var(--orange);
 
@@ -2103,7 +2106,7 @@ LEAVE MODAL
 
 }
 
-.emp-info-tab.active i {
+.emp-profile-tab.active i {
 
     color: white;
 
@@ -2114,7 +2117,7 @@ LEAVE MODAL
    Main Card
 =========================== */
 
-.emp-info-card {
+.emp-profile-card {
 
     background: white;
 
@@ -2133,13 +2136,13 @@ LEAVE MODAL
    Tab Content
 =========================== */
 
-.emp-info-content {
+.emp-profile-content {
 
     display: none;
 
 }
 
-.emp-info-content.active {
+.emp-profile-content.active {
 
     display: block;
 
@@ -2150,7 +2153,7 @@ LEAVE MODAL
    Section Heading
 =========================== */
 
-.emp-info-title {
+.emp-profile-title {
 
     display: flex;
 
@@ -2166,7 +2169,7 @@ LEAVE MODAL
 
 }
 
-.emp-info-title h2 {
+.emp-profile-title h2 {
 
     display: flex;
 
@@ -2186,7 +2189,7 @@ LEAVE MODAL
 
 } */
 
-.emp-info-title p {
+.emp-profile-title p {
 
     margin-top: 6px;
 
@@ -2199,7 +2202,7 @@ LEAVE MODAL
    Grid
 =========================== */
 
-.emp-info-grid {
+.emp-profile-grid {
 
     display: grid;
 
@@ -2214,7 +2217,7 @@ LEAVE MODAL
    Information Cards
 =========================== */
 
-.emp-info-item {
+.emp-profile-item {
     background: white;
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -2223,7 +2226,7 @@ LEAVE MODAL
     transition: .25s;
 }
 
-.emp-info-item:hover {
+.emp-profile-item:hover {
 
     transform: translateY(-2px);
 
@@ -2231,7 +2234,7 @@ LEAVE MODAL
 
 }
 
-.emp-info-item span {
+.emp-profile-item span {
 
     display: block;
 
@@ -2245,7 +2248,7 @@ LEAVE MODAL
 
 }
 
-.emp-info-item strong {
+.emp-profile-item strong {
 
     font-size: 1rem;
 
@@ -2357,19 +2360,19 @@ LEAVE MODAL
 
 @media(max-width:900px) {
 
-    .emp-info-grid {
+    .emp-profile-grid {
 
         grid-template-columns: 1fr;
 
     }
 
-    .emp-info-tabs {
+    .emp-profile-tabs {
 
         flex-wrap: wrap;
 
     }
 
-    .emp-info-card {
+    .emp-profile-card {
 
         padding: 20px;
 
@@ -2379,7 +2382,7 @@ LEAVE MODAL
 
 @media(max-width:600px) {
 
-    .emp-info-tab {
+    .emp-profile-tab {
 
         width: 100%;
 
@@ -2387,7 +2390,7 @@ LEAVE MODAL
 
     }
 
-    .emp-info-title {
+    .emp-profile-title {
 
         flex-direction: column;
 
