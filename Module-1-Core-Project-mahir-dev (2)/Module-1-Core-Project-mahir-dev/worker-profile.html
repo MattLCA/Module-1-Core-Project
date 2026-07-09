@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu" aria-expanded="false"
+        aria-controls="sidebar">
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        ...
+    </aside>
+
+    <main class="main-content">
+
+        <section class="page">
+
+            <header class="page-header">
+
+                <div class="header-text">
+
+                    <h1>My Information</h1>
+
+                    <p>View your personal and employment information.</p>
+
+                </div>
+
+            </header>
+
+            <div class="leave-tabs">
+
+                <button class="emp-info-tab active" data-tab="personal">
+                    <i class="fa-solid fa-id-card"></i>
+                    Personal Information
+                </button>
+
+                <button class="emp-info-tab" data-tab="salary">
+                    <i class="fa-solid fa-wallet"></i>
+                    Salary Details
+                </button>
+
+                <button class="emp-info-tab" data-tab="history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Work History
+                </button>
+
+            </div>
+
+            <section class="emp-info-card">
+
+                <div id="personal" class="emp-info-content active">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-user"></i>
+                                Personal Information
+                            </h2>
+
+                            <p>Your personal and employment details.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Personal Information content -->
+
+                </div>
+
+                <div id="salary" class="emp-info-content">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-money-check-dollar"></i>
+                                Salary Details
+                            </h2>
+
+                            <p>Your salary information.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Salary Details content -->
+
+                </div>
+
+                <div id="history" class="emp-info-content">
+
+                    <div class="emp-info-title">
+
+                        <div>
+
+                            <h2>
+                                <i class="fa-solid fa-briefcase"></i>
+                                Work History
+                            </h2>
+
+                            <p>Your employment journey at ModernTech.</p>
+
+                        </div>
+
+                    </div>
+
+                    <!-- rest of your Work History content -->
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="../javascript/script.js"></script>
+    <script src="../javascript/employee-information.js"></script>
+
+</body>
+</html>

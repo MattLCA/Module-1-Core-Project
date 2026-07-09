@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | ModernTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="main login-main" id="mainContent">
+  <section class="login-card">
+    <div class="login-icon"><i class="ti ti-lock-access"></i></div>
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Login as HR management or worker.</p>
+    <div class="account-switch">
+      <button class="account-btn active" type="button" data-role="hr">HR</button>
+      <button class="account-btn" type="button" data-role="worker">Worker</button>
+    </div>
+    <form id="loginForm">
+      <input type="hidden" id="selectedRole" value="hr">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <div class="input-box"><i class="ti ti-mail"></i><input id="email" type="email" placeholder="hr@moderntech.com" required></div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-box"><i class="ti ti-key"></i><input id="password" type="password" placeholder="Enter password" required></div>
+      </div>
+      <p class="error-message" id="errorMessage"></p>
+      <button class="btn full" type="submit">Login <i class="ti ti-arrow-right"></i></button>
+    </form>
+    <div class="demo-box">
+      <strong>Demo accounts</strong>
+      <p>HR: hr@moderntech.com / hr123</p>
+      <p>Worker: worker@moderntech.com / worker123</p>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
