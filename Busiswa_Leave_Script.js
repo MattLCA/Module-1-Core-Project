@@ -5,109 +5,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaveCount = document.getElementById("leaveCount");
   const leaveRows = document.getElementById("leaveRows");
 
-  const storedLeaveData = localStorage.getItem("bs_leave_data");
-  let leaveRequests = storedLeaveData
-    ? JSON.parse(storedLeaveData)
-    : [
-        {
-          employee: "Alex Turner",
-          empId: "EMP-023",
-          department: "Engineering",
-          leaveType: "Annual Leave",
-          startDate: "Jul 01",
-          endDate: "Jul 05",
-          duration: "5 days",
-          reason: "Family vacation...",
-          submitted: "Jun 20",
-          manager: "Mark Thompson",
-          status: "Pending",
-        },
-        {
-          employee: "Zara Ahmed",
-          empId: "EMP-047",
-          department: "Sales",
-          leaveType: "Sick Leave",
-          startDate: "Jun 27",
-          endDate: "Jun 28",
-          duration: "2 days",
-          reason: "Medical appointment",
-          submitted: "Jun 25",
-          manager: "James Wilson",
-          status: "Pending",
-        },
-        {
-          employee: "Michael Brown",
-          empId: "EMP-031",
-          department: "Finance",
-          leaveType: "Casual Leave",
-          startDate: "Jun 30",
-          endDate: "Jun 30",
-          duration: "1 day",
-          reason: "Personal errands",
-          submitted: "Jun 24",
-          manager: "Sarah Mitchell",
-          status: "Pending",
-        },
-        {
-          employee: "Leila Nassar",
-          empId: "EMP-055",
-          department: "Marketing",
-          leaveType: "Annual Leave",
-          startDate: "Jul 07",
-          endDate: "Jul 18",
-          duration: "10 days",
-          reason: "Annual holiday wit...",
-          submitted: "Jun 22",
-          manager: "Chris Johnson",
-          status: "Pending",
-        },
-        {
-          employee: "John Okafor",
-          empId: "EMP-012",
-          department: "Operations",
-          leaveType: "Family Responsibility",
-          startDate: "Jun 28",
-          endDate: "Jun 30",
-          duration: "3 days",
-          reason: "Child care emergency",
-          submitted: "Jun 25",
-          manager: "Linda Chen",
-          status: "Pending",
-        },
-        {
-          employee: "Ananya Singh",
-          empId: "EMP-038",
-          department: "Human Resources",
-          leaveType: "Annual Leave",
-          startDate: "Jul 14",
-          endDate: "Jul 25",
-          duration: "10 days",
-          reason: "Planned internation...",
-          submitted: "Jun 23",
-          manager: "Priya Sharma",
-          status: "Pending",
-        },
-        {
-          employee: "Ryan O'Brien",
-          empId: "EMP-044",
-          department: "IT",
-          leaveType: "Sick Leave",
-          startDate: "Jun 27",
-          endDate: "Jun 27",
-          duration: "1 day",
-          reason: "Medical check-up",
-          submitted: "Jun 25",
-          manager: "Rachel Adams",
-          status: "Pending",
-        },
-      ];
+  let leaveRequests = [];
 
-  function saveLeaveData() {
-    localStorage.setItem("bs_leave_data", JSON.stringify(leaveRequests));
-  }
+  employeeData.employees.forEach((employee) => {
+    employee.leaveRequests.forEach((leave) => {
+      leaveRequests.push({
+        employee: employee.name,
+        empId: employee.employeeId,
+        department: employee.department,
+
+        leaveType: leave.type,
+
+        startDate: leave.startDate,
+        endDate: leave.endDate,
+
+        duration: leave.duration,
+
+        reason: leave.reason,
+
+        submitted: leave.submitted,
+
+        manager: leave.manager,
+
+        status: leave.status,
+      });
+    });
+  });
 
   function formatBadgeType(type) {
-    return type.replace(/\s+/g, " ").replace(/ /g, "\\ ");
+    return type.replace(/\s+/g, "-").toLowerCase();
   }
 
   const modalOverlay = document.getElementById("leaveModalOverlay");
@@ -175,13 +101,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (activeAction === "approve") {
       request.status = "Approved";
-      saveLeaveData();
       renderLeaveRows();
       closeModal();
       return;
     }
 
     const reason = modalReasonTextarea.value.trim();
+
     if (!reason) {
       modalReasonTextarea.focus();
       return;
@@ -189,7 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     request.status = "Declined";
     request.reason = reason;
-    saveLeaveData();
     renderLeaveRows();
     closeModal();
   }
@@ -228,24 +153,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     filtered.forEach((request) => {
       const index = leaveRequests.indexOf(request);
-      const row = document.createElement("div");
-      row.className = "leave-row";
+      const row = document.createElement("tr");
+      const statusClass = request.status.toLowerCase().replace(/\s+/g, "");
       row.innerHTML = `
-        <span>${request.employee}</span>
-        <span>${request.empId}</span>
-        <span>${request.department}</span>
-        <span><span class="leave-badge ${formatBadgeType(request.leaveType)}">${request.leaveType}</span></span>
-        <span>${request.startDate}</span>
-        <span>${request.endDate}</span>
-        <span>${request.duration}</span>
-        <span>${request.reason}</span>
-        <span>${request.submitted}</span>
-        <span>Busiswa Bala</span>
-        <span>${request.status}</span>
-        <span class="leave-action">
-          <button class="approve">Approve</button>
-          <button class="decline">Decline</button>
-        </span>
+        <td>
+          <div class="emp-cell">
+            <div class="emp-avatar">${request.employee
+              .split(" ")
+              .map((n) => n[0])
+              .join("")}</div>
+            <div>
+              <div class="emp-name">${request.employee}</div>
+            </div>
+          </div>
+        </td>
+        <td>${request.empId}</td>
+        <td>${request.department}</td>
+        <td><span class="status-pill ${formatBadgeType(request.leaveType)}">${request.leaveType}</span></td>
+        <td>${request.startDate}</td>
+        <td>${request.endDate}</td>
+        <td>${request.duration}</td>
+        <td>${request.reason}</td>
+        <td>${request.submitted}</td>
+        <td>Busiswa Bala</td>
+        <td><span class="status-pill ${statusClass}">${request.status}</span></td>
+        <td>
+          <div class="action-cell-group">
+            <button class="pay-action-btn approve">Approve</button>
+            <button class="pay-action-btn decline">Decline</button>
+          </div>
+        </td>
       `;
 
       leaveRows.appendChild(row);

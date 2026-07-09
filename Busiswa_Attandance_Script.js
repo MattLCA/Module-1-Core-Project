@@ -65,78 +65,50 @@ document.addEventListener("DOMContentLoaded", () => {
     return `${h}h ${m}m`;
   }
 
-  // sample activity data (recent)
-  const activityData = [
-    {
-      badge: "AM",
-      name: "Arjun Mehta",
-      in: "08:54 AM",
-      out: "06:12 PM",
-      hours: "9h 18m",
-      status: "Present",
-      statusClass: "badge-success",
-    },
-    {
-      badge: "SP",
-      name: "Sneha Patil",
-      in: "09:22 AM",
-      out: "05:45 PM",
-      hours: "8h 23m",
-      status: "Late",
-      statusClass: "badge-warning",
-    },
-    {
-      badge: "RD",
-      name: "Rahul Desai",
-      in: "—",
-      out: "—",
-      hours: "—",
-      status: "Absent",
-      statusClass: "badge-danger",
-    },
-    {
-      badge: "KN",
-      name: "Kavita Nair",
-      in: "08:47 AM",
-      out: "06:30 PM",
-      hours: "9h 43m",
-      status: "Present",
-      statusClass: "badge-success",
-    },
-    {
-      badge: "VI",
-      name: "Vikram Iyer",
-      in: "09:05 AM",
-      out: "05:55 PM",
-      hours: "8h 50m",
-      status: "Present",
-      statusClass: "badge-success",
-    },
-    {
-      badge: "MJ",
-      name: "Meera Joshi",
-      in: "09:35 AM",
-      out: "06:00 PM",
-      hours: "8h 25m",
-      status: "Late",
-      statusClass: "badge-warning",
-    },
-  ];
-
   function renderActivity() {
     activityRows.innerHTML = "";
-    // show most recent first
-    const rows = [...activityData].slice(0, 20);
-    rows.forEach((item) => {
-      const row = document.createElement("div");
-      row.className = "activity-row";
+
+    employeeData.employees.forEach((employee) => {
+      const latestAttendance =
+        employee.attendance[employee.attendance.length - 1];
+
+      let clockIn = "09:00 AM";
+      let clockOut = "05:00 PM";
+      let hours = "8h";
+      let statusClass = "present";
+
+      if (latestAttendance.status === "Absent") {
+        clockIn = "—";
+        clockOut = "—";
+        hours = "—";
+        statusClass = "absent";
+      } else if (latestAttendance.status === "Late") {
+        statusClass = "late";
+      }
+
+      const initials = employee.name
+        .split(" ")
+        .map((word) => word[0])
+        .join("");
+
+      const row = document.createElement("tr");
+
       row.innerHTML = `
-        <div class="employee-cell"><span class="employee-badge">${item.badge}</span>${item.name}</div>
-        <span>${item.in || "—"}</span>
-        <span>${item.out || "—"}</span>
-        <span>${item.hours || "—"}</span>
-        <span class="badge ${item.statusClass}">${item.status}</span>
+        <td>
+          <div class="emp-cell">
+            <div class="emp-avatar">${initials}</div>
+            <div>
+              <div class="emp-name">${employee.name}</div>
+              <div class="emp-role">${employee.position}</div>
+            </div>
+          </div>
+        </td>
+        <td>${clockIn}</td>
+        <td>${clockOut}</td>
+        <td>${hours}</td>
+        <td><span class="status-pill ${statusClass}">${latestAttendance.status}</span></td>
       `;
+
       activityRows.appendChild(row);
     });
   }

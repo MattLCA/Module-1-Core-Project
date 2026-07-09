@@ -55,7 +55,8 @@
           >
 
           <a href="./Busiswa_IssuesReport.html" class="nav-item"
-            ><i class="ti ti-alert-circle" aria-hidden="true"></i>Issues Reporting</a
+            ><i class="ti ti-alert-circle" aria-hidden="true"></i>Issues
+            Reporting</a
           >
         </nav>
 
@@ -170,21 +171,23 @@
               <h2>Recent Attendance Activity</h2>
               <a href="#">View All</a>
             </div>
-            <div class="activity-table">
-              <div class="activity-row activity-row--header">
-                <span>Employee</span>
-                <span>Clock In</span>
-                <span>Clock Out</span>
-                <span>Hours</span>
-                <span>Status</span>
-              </div>
-              <div id="activityRows" class="activity-rows"></div>
-            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Clock In</th>
+                  <th>Clock Out</th>
+                  <th>Hours</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="activityRows"></tbody>
+            </table>
           </div>
         </section>
         <script src="./Busiswa_Attandance_Script.js"></script>
+        <script src="./Busiswa_employee_data.js"></script>
       </main>
     </div>
   </body>
 </html>
-

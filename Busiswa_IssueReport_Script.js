@@ -85,8 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
         <td>${issue.title}</td>
         <td>${issue.category}</td>
         <td>${issue.department}</td>
-        <td><span class="priority-badge ${issue.priority}">${issue.priority}</span></td>
-        <td><span class="status-badge ${statusBadgeClass}">${issue.status}</span></td>
+        <td><span class="status-pill ${issue.priority.toLowerCase()}">${issue.priority}</span></td>
+        <td><span class="status-pill ${statusBadgeClass}">${issue.status}</span></td>
         <td>${issue.submittedAt}</td>
       `;
       reportsTableBody.appendChild(row);

@@ -49,7 +49,11 @@ button {
   --text-primary: #161d3b;
   --text-secondary: #5e6485;
   --text-muted: #6b709b;
+  --text-dark: #161d3b;
+  --text-soft: #5e6485;
+  --text-mid: #8c8fb7;
   --border-soft: #e5e9ff;
+  --line: #e5e9ff;
   --shadow-soft: 0 24px 60px rgba(39, 24, 126, 0.08);
 }
 
@@ -429,11 +433,24 @@ nav.primary-nav {
 
 .leave-row {
   display: grid;
-  grid-template-columns: 1.4fr 0.7fr 1fr 1fr 0.9fr 0.9fr 0.8fr 1.2fr 0.7fr 0.9fr 0.8fr 1.1fr;
-  gap: 12px;
+  grid-template-columns:
+    2fr /* Employee */
+    0.7fr /* ID */
+    1.2fr /* Department */
+    1.4fr /* Leave Type */
+    1fr /* Start */
+    1fr /* End */
+    0.9fr /* Duration */
+    1.8fr /* Reason */
+    1fr /* Submitted */
+    1.1fr /* Manager */
+    1fr /* Status */
+    1.5fr; /* Actions */
+
   align-items: center;
-  padding: 16px 0;
-  border-bottom: 1px solid #eef0ff;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid #e8ebf8;
 }
 
 .leave-row:last-child {
@@ -451,15 +468,35 @@ nav.primary-nav {
   color: #5e6485;
   font-size: 0.95rem;
 }
+.leave-row span:first-child{
+    font-weight:600;
+    color:#1d2550;
+}
+.leave-row span:nth-child(5),
+.leave-row span:nth-child(6),
+.leave-row span:nth-child(5),
+.leave-row span:nth-child(6),
+.leave-row span:nth-child(9) {
+    white-space: nowrap;
+}
 
 .leave-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+
+  padding: 4px 10px;
   border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 700;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.2;
+
+  white-space: normal;
+  text-align: center;
+  word-break: break-word;
+
+  max-width: 120px;
 }
 
 .leave-badge.Annual\ Leave {
@@ -1249,32 +1286,38 @@ nav.primary-nav {
 .timeoff-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
+  gap: 24px;
   margin-bottom: 24px;
 }
 
 .timeoff-card {
-  display: grid;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
   gap: 18px;
 }
 
 .card-label {
   display: block;
-  font-size: 1.45rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #1f2a5a;
   text-transform: none;
-  letter-spacing: 0.08em;
+  letter-spacing: 0rem;
   margin-bottom: 10px;
   line-height: 1.3;
 }
 
 .timeoff-value {
-  font-size: 3.2rem;
+  font-size: 2.1rem;
   font-weight: 700;
   color: #758bfd;
   line-height: 1;
-  margin-bottom: 18px;
+  margin: 0;
 }
 
 .timeoff-meta {
@@ -1282,7 +1325,7 @@ nav.primary-nav {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding-top: 16px;
+  padding-top: 14px 0;
   margin-top: auto;
   border-top: 1px solid #eef2f7;
   color: #667085;
@@ -1703,4 +1746,302 @@ nav.primary-nav {
 
 .activity-row .badge {
   justify-self: flex-start;
+}
+
+/* ===== TABLE STYLING ===== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-size: 11.5px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  padding: 0 12px 12px 0;
+}
+
+td {
+  padding: 14px 12px 14px 0;
+  font-size: 13.5px;
+  border-top: 1px solid var(--line);
+  vertical-align: middle;
+}
+
+/* Employee Cell */
+
+.emp-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.emp-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: var(--periwinkle-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.emp-name {
+  font-weight: 600;
+}
+
+.emp-role {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+/* Amount Colours */
+
+.allow-color {
+  color: #1c8a4c;
+}
+
+.deduct-color {
+  color: #c94848;
+}
+
+.rate-color {
+  color: var(--periwinkle);
+}
+
+.net-val strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+
+/* Status Pills */
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-pill.calc {
+  background: #eceeff;
+  color: var(--periwinkle);
+}
+
+.status-pill.verified {
+  background: rgba(255, 134, 0, 0.12);
+  color: #d66f00;
+}
+
+.status-pill.disbursed {
+  background: #e7f6ec;
+  color: #1c8a4c;
+}
+
+.status-pill.present {
+  background: #e7f6ec;
+  color: #1c8a4c;
+}
+
+.status-pill.late {
+  background: rgba(255, 134, 0, 0.12);
+  color: #d66f00;
+}
+
+.status-pill.absent {
+  background: rgba(201, 72, 72, 0.12);
+  color: #c94848;
+}
+
+.status-pill.review {
+  background: rgba(255, 159, 67, 0.12);
+  color: #d97706;
+}
+
+.status-pill.progress {
+  background: rgba(117, 139, 253, 0.12);
+  color: #4f46e5;
+}
+
+.status-pill.resolved {
+  background: #e7f6ec;
+  color: #1c8a4c;
+}
+
+/* Priority levels for status pills */
+
+.status-pill.low {
+  background: rgba(255, 216, 173, 0.6);
+  color: #be7900;
+}
+
+.status-pill.medium {
+  background: rgba(254, 231, 164, 0.6);
+  color: #a96e00;
+}
+
+.status-pill.high {
+  background: rgba(255, 163, 100, 0.8);
+  color: #d15f00;
+}
+
+.status-pill.critical {
+  background: rgba(255, 111, 111, 0.15);
+  color: #dc2626;
+}
+
+/* Leave types for status pills */
+
+.status-pill.annual-leave {
+  background: rgba(107, 130, 255, 0.12);
+  color: #4c53d5;
+}
+
+.status-pill.sick-leave {
+  background: rgba(255, 115, 115, 0.12);
+  color: #d14b4b;
+}
+
+.status-pill.casual-leave {
+  background: rgba(255, 187, 121, 0.16);
+  color: #c97314;
+}
+
+.status-pill.family-responsibility {
+  background: rgba(183, 148, 255, 0.14);
+  color: #7d5ddc;
+}
+
+.status-pill.childcare {
+  background: rgba(107, 130, 255, 0.12);
+  color: #4c53d5;
+}
+
+/* Leave request statuses */
+
+.status-pill.pending {
+  background: rgba(255, 159, 67, 0.12);
+  color: #d97706;
+}
+
+.status-pill.approved {
+  background: #e7f6ec;
+  color: #1c8a4c;
+}
+
+.status-pill.rejected {
+  background: rgba(201, 72, 72, 0.12);
+  color: #c94848;
+}
+
+.status-pill.cancelled {
+  background: rgba(201, 72, 72, 0.12);
+  color: #c94848;
+}
+
+/* Action Buttons */
+
+.action-cell-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pay-action-btn {
+  background: transparent;
+  border: 1px solid var(--periwinkle);
+  color: var(--indigo);
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pay-action-btn:hover {
+  background: var(--periwinkle);
+  color: var(--white);
+}
+
+.pay-action-btn.disabled {
+  background: var(--grey);
+  border-color: var(--line);
+  color: var(--text-soft);
+  cursor: not-allowed;
+}
+
+.pay-action-btn.approve {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--white);
+}
+
+.pay-action-btn.approve:hover {
+  background: #ff7500;
+  border-color: #ff7500;
+}
+
+.pay-action-btn.decline {
+  background: transparent;
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.pay-action-btn.decline:hover {
+  background: var(--orange);
+  color: var(--white);
+}
+
+.slip-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  background: var(--grey);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--text-mid);
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.slip-btn:hover {
+  background: var(--periwinkle-light);
+  color: var(--indigo);
+  border-color: var(--periwinkle);
+}
+
+/* Empty State */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 48px 0;
+  color: var(--text-soft);
+}
+
+.empty-state i {
+  font-size: 28px;
+}
+
+.empty-state p {
+  font-size: 13.5px;
+  font-weight: 500;
 }
