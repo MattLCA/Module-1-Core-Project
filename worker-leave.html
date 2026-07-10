@@ -2,235 +2,218 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <title>ModernTech - Leave</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="Css/worker-leave.css" />
 </head>
 
-<body>
-    <aside class="sidebar">
-        <div>
+<body class="page-leave">
+    <a class="skip-link" href="#mainContent">Skip to main content</a>
 
-            <div class="logo">
-                <img src="images/logo.svg" alt="logo">
+    <button class="sidebar-toggle" id="sidebarToggle" aria-controls="sidebar" aria-expanded="false">
+        <i class="ti ti-menu-2"></i>
+    </button>
+
+    <aside class="sidebar" id="sidebar">
+        <div>
+            <div class="brand">
+                <div class="brand-mark">M</div>
                 <div>
-                    <h2>ModernTech</h2>
+                    <div class="brand-name">ModernTech</div>
+                    <div class="brand-sub">Employee Portal</div>
                 </div>
             </div>
 
-            <nav>
-                <a href="worker-dashboard.html" id="nav-dashboard" class="nav-item">
+            <div class="nav-section-label">Workspace</div>
+            <nav class="primary-nav">
+                <a href="worker-dashboard.html" class="nav-item">
                     <i class="ti ti-home"></i>
-                    Dashboard
+                    <span>Dashboard</span>
                 </a>
 
-                <a href="worker-notifications.html" id="nav-notifications" class="nav-item">
+                <a href="worker-notifications.html" class="nav-item">
                     <i class="ti ti-bell"></i>
-                    Notifications
+                    <span>Notifications</span>
                 </a>
 
-                <a href="worker-attendance.html" id="nav-attendance" class="nav-item">
+                <a href="worker-attendance.html" class="nav-item">
                     <i class="ti ti-calendar-check"></i>
-                    Attendance
+                    <span>Attendance</span>
                 </a>
 
-                <a href="worker-leave.html" id="nav-leave" class="nav-item">
+                <a href="worker-leave.html" class="nav-item active">
                     <i class="ti ti-calendar-days"></i>
-                    Leave
+                    <span>Leave</span>
                 </a>
 
-                <a href="worker-payslip.html" id="nav-payroll" class="nav-item">
+                <a href="worker-payslip.html" class="nav-item">
                     <i class="ti ti-coins"></i>
-                    Payroll
+                    <span>Payroll</span>
                 </a>
 
-                <a href="worker-profile.html" id="nav-information" class="nav-item">
+                <a href="worker-profile.html" class="nav-item">
                     <i class="ti ti-circle-info"></i>
-                Profile
+                    <span>Profile</span>
                 </a>
-            </nav>
 
-                <a href="worker-settings.html" id="nav-settings" class="nav-item">
+                <a href="worker-settings.html" class="nav-item">
                     <i class="ti ti-settings"></i>
-                    Settings
+                    <span>Settings</span>
                 </a>
             </nav>
         </div>
 
-        <div>
-            <div class="profile-card">
-                <i class="ti ti-user"></i>
+        <div class="sidebar-footer">
+            <button class="user-chip" type="button" onclick="location.href='worker-profile.html'">
+                <div class="avatar" id="sidebarInitials">KN</div>
                 <div>
-                    <h4>Keshav Naidoo</h4>
-                    <p>EMP-2048</p>
+                    <div class="name" id="sidebarName">Keshav Naidoo</div>
+                    <div class="role" id="sidebarRole">Sales Representative</div>
                 </div>
-            </div>
-
-            <div class="logout-card">
-                <i class="ti ti-logout"></i>
-                <h4>Log Out</h4>
+                <i class="ti ti-chevron-right" aria-hidden="true"></i>
+            </button>
+            <div class="logout-wrap">
+                <button class="btn secondary full" type="button" onclick="logout()"><i
+                        class="ti ti-logout"></i>Logout</button>
             </div>
         </div>
     </aside>
 
-    <main class="main-content">
+    <main class="main" id="mainContent">
+        <section class="page-hero">
+            <div>
+                <h1>Leave</h1>
+                <p>Submit leave requests, view your leave balance and track previous requests.</p>
+            </div>
+            <div class="hero-actions">
+                <button class="btn secondary" type="button" id="clearLeaveBtn">Clear requests</button>
+            </div>
+        </section>
 
-        <section class="page">
+        <div class="leave-tabs">
+            <button class="leave-tab active" data-tab="request" type="button">
+                <i class="ti ti-paper-plane"></i>
+                Request Leave
+            </button>
 
-            <header class="page-header">
-                <div class="header-text">
-                    <h1>Leave</h1>
-                    <p>Submit leave requests, view your leave balance and track previous requests.</p>
+            <button class="leave-tab" data-tab="balance" type="button">
+                <i class="ti ti-calendar-check"></i>
+                Leave Balance
+            </button>
+
+            <button class="leave-tab" data-tab="history" type="button">
+                <i class="ti ti-clock-rotate-left"></i>
+                Leave History
+            </button>
+        </div>
+
+        <section class="panel leave-panel">
+            <div id="request" class="leave-content active">
+                <div class="leave-section-title">
+                    <div>
+                        <h2><i class="ti ti-paper-plane"></i> Request Leave</h2>
+                        <p>Complete the form below to submit your leave request.</p>
+                    </div>
                 </div>
-            </header>
 
-            <div class="leave-tabs">
+                <form class="leave-request-form" id="leaveForm">
+                    <div class="leave-field">
+                        <label>Leave Type</label>
+                        <select id="leaveType" required>
+                            <option value="">Select Leave Type</option>
+                            <option>Annual Leave</option>
+                            <option>Sick Leave</option>
+                            <option>Family Responsibility</option>
+                            <option>Study Leave</option>
+                        </select>
+                    </div>
 
-                <button class="leave-tab active" data-tab="request">
-                    <i class="ti ti-paper-plane"></i>
-                    Request Leave
-                </button>
+                    <div class="leave-field">
+                        <label>Total Days</label>
+                        <input type="number" id="leaveDays" min="1" required />
+                    </div>
 
-                <button class="leave-tab" data-tab="balance">
-                    <i class="ti ti-calendar-check"></i>
-                    Leave Balance
-                </button>
+                    <div class="leave-field">
+                        <label>Start Date</label>
+                        <input type="date" id="startDate" required />
+                    </div>
 
-                <button class="leave-tab" data-tab="history">
-                    <i class="ti ti-clock-rotate-left"></i>
-                    Leave History
-                </button>
+                    <div class="leave-field">
+                        <label>End Date</label>
+                        <input type="date" id="endDate" required />
+                    </div>
 
+                    <div class="leave-field full">
+                        <label>Reason</label>
+                        <textarea id="leaveReason" placeholder="Briefly explain the reason for your leave..."
+                            required></textarea>
+                    </div>
+
+                    <div class="leave-field full">
+                        <button class="leave-submit" type="submit">Submit Leave Request</button>
+                    </div>
+                </form>
+
+                <div class="leave-modal" id="leaveModal">
+                    <div class="leave-modal-card">
+                        <div class="leave-modal-header">
+                            <i class="ti ti-circle-check"></i>
+                            <h2>Leave Submitted</h2>
+                        </div>
+
+                        <p>Your leave request has been submitted successfully.</p>
+
+                        <div class="leave-summary">
+                            <p><strong>Leave Type:</strong> <span id="summaryType"></span></p>
+                            <p><strong>Total Days:</strong> <span id="summaryDays"></span></p>
+                            <p><strong>Start Date:</strong> <span id="summaryStart"></span></p>
+                            <p><strong>End Date:</strong> <span id="summaryEnd"></span></p>
+                            <p><strong>Reason:</strong> <span id="summaryReason"></span></p>
+                            <p><strong>Status:</strong> Pending HR Approval</p>
+                        </div>
+
+                        <button id="closeModal" class="leave-submit" type="button">Close</button>
+                    </div>
+                </div>
             </div>
 
-            <section class="leave-card">
-
-                <div id="request" class="leave-content active">
-
-                    <div class="leave-section-title">
-                        <div>
-                            <h2>
-                                <i class="ti ti-paper-plane"></i>
-                                Request Leave
-                            </h2>
-                            <p>Complete the form below to submit your leave request.</p>
-                        </div>
+            <div id="balance" class="leave-content">
+                <div class="leave-section-title">
+                    <div>
+                        <h2><i class="ti ti-calendar-days"></i> Leave Balance</h2>
+                        <p>View your remaining leave available for the year.</p>
                     </div>
-
-                    <form class="leave-request-form" id="leaveForm">
-
-                        <div class="leave-field">
-                            <label>Leave Type</label>
-                            <select id="leaveType" required>
-                                <option value="">Select Leave Type</option>
-                                <option>Annual Leave</option>
-                                <option>Sick Leave</option>
-                                <option>Family Responsibility</option>
-                                <option>Study Leave</option>
-                            </select>
-                        </div>
-
-                        <div class="leave-field">
-                            <label>Total Days</label>
-                            <input type="number" id="leaveDays" min="1" required>
-                        </div>
-
-                        <div class="leave-field">
-                            <label>Start Date</label>
-                            <input type="date" id="startDate" required>
-                        </div>
-
-                        <div class="leave-field">
-                            <label>End Date</label>
-                            <input type="date" id="endDate" required>
-                        </div>
-
-                        <div class="leave-field full">
-                            <label>Reason</label>
-                            <textarea id="leaveReason"
-                                placeholder="Briefly explain the reason for your leave..." required></textarea>
-                        </div>
-
-                        <div class="leave-field full">
-                            <button class="leave-submit" type="submit">
-                                Submit Leave Request
-                            </button>
-                        </div>
-
-                    </form>
-
-                    <div class="leave-modal" id="leaveModal">
-
-                        <div class="leave-modal-card">
-
-                            <div class="leave-modal-header">
-                                <i class="ti ti-circle-check"></i>
-                                <h2>Leave Submitted</h2>
-                            </div>
-
-                            <p>Your leave request has been submitted successfully.</p>
-
-                            <div class="leave-summary">
-                                <p><strong>Leave Type:</strong> <span id="summaryType"></span></p>
-                                <p><strong>Total Days:</strong> <span id="summaryDays"></span></p>
-                                <p><strong>Start Date:</strong> <span id="summaryStart"></span></p>
-                                <p><strong>End Date:</strong> <span id="summaryEnd"></span></p>
-                                <p><strong>Reason:</strong> <span id="summaryReason"></span></p>
-                                <p><strong>Status:</strong> Pending HR Approval</p> 
-                            </div>
-
-                            <button id="closeModal" class="leave-submit">
-                                Close
-                            </button>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-                <div id="balance" class="leave-content">
-
-                    <div class="emp-info-title">
-                        <div>
-                            <h2>
-                                <i class="ti ti-calendar-days"></i>
-                                Leave Balance
-                            </h2>
-
-                            <p>View your remaining leave available for the year.</p>
-                        </div>
+                <div class="emp-info-grid">
+                    <div class="emp-info-item">
+                        <span>Available Days</span>
+                        <strong id="leaveBalanceText">14 days</strong>
                     </div>
-
-                    <div class="emp-info-grid">
-                        <!-- Remaining balance items unchanged -->
+                    <div class="emp-info-item">
+                        <span>Pending Requests</span>
+                        <strong id="leavePendingText">0</strong>
                     </div>
+                </div>
+            </div>
 
+            <div id="history" class="leave-content">
+                <div class="leave-section-title">
+                    <div>
+                        <h2><i class="ti ti-clock-rotate-left"></i> Leave History</h2>
+                        <p>Your submitted leave requests.</p>
+                    </div>
                 </div>
 
-                <div id="history" class="leave-content">
-
-                    <div class="leave-section-title">
-                        <div>
-                            <h2>
-                                <i class="ti ti-clock-rotate-left"></i>
-                                Leave History
-                            </h2>
-                            <p>Your submitted leave requests.</p>
-                        </div>
-                    </div>
-
-                    <div class="leave-filter-bar">
-                        
-                    </div>
-
+                <div class="table-wrap">
                     <table class="leave-history-table">
                         <thead>
                             <tr>
@@ -241,20 +224,50 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-
-                        <tbody id="leaveHistoryTable"></tbody>
+                        <tbody id="leaveTable"></tbody>
                     </table>
-
                 </div>
-
-            </section>
-
+            </div>
         </section>
-
     </main>
 
     <script src="javascript/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".leave-tab");
+            const contents = document.querySelectorAll(".leave-content");
 
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    const target = tab.dataset.tab;
+
+                    tabs.forEach(btn => btn.classList.remove("active"));
+                    tab.classList.add("active");
+
+                    contents.forEach(content => {
+                        content.classList.toggle("active", content.id === target);
+                    });
+                });
+            });
+
+            const form = document.getElementById("leaveForm");
+            const modal = document.getElementById("leaveModal");
+            const closeModal = document.getElementById("closeModal");
+
+            if (form) {
+                form.addEventListener("submit", (event) => {
+                    event.preventDefault();
+                    if (modal) {
+                        modal.classList.add("show");
+                    }
+                });
+            }
+
+            if (closeModal && modal) {
+                closeModal.addEventListener("click", () => modal.classList.remove("show"));
+            }
+        });
+    </script>
 </body>
 
 </html>
