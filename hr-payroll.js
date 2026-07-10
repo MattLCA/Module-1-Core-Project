@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const recalcBtn = document.getElementById("recalcBtn");
 
     const emptyState = document.getElementById("emptyState");
-    const tableEl = document.querySelector("table");
+    const tableEl = document.querySelector("table");  
     const tableBody = document.getElementById("payrollItemsTable");
 
     const slipModal = document.getElementById("slipModal");

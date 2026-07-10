@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 else if(user.role === "Employee"){
 
-                    window.location.href = "employee-dashboard.html";
+                    window.location.href = "worker-dashboard.html";
 
                 }
 
