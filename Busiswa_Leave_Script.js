@@ -5,11 +5,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const leaveCount = document.getElementById("leaveCount");
   const leaveRows = document.getElementById("leaveRows");
 
+  // Shared key so the Time Off page (and any other page) can read the same
+  // approve/decline decisions made here.
+  const OVERRIDES_KEY = "moderntech_leaveStatusOverrides";
+
+  function loadLeaveOverrides() {
+    let saved;
+    try {
+      saved = JSON.parse(localStorage.getItem(OVERRIDES_KEY) || "{}");
+    } catch (e) {
+      saved = {};
+    }
+    employeeData.employees.forEach((employee) => {
+      employee.leaveRequests.forEach((leave) => {
+        const override = saved[leave.leaveId];
+        if (override) {
+          leave.status = override.status;
+          if (override.reason !== undefined) {
+            leave.reason = override.reason;
+          }
+        }
+      });
+    });
+  }
+
+  function saveLeaveOverride(leaveId, data) {
+    let saved;
+    try {
+      saved = JSON.parse(localStorage.getItem(OVERRIDES_KEY) || "{}");
+    } catch (e) {
+      saved = {};
+    }
+    saved[leaveId] = data;
+    localStorage.setItem(OVERRIDES_KEY, JSON.stringify(saved));
+  }
+
+  // Apply any previously saved decisions before building the table, so a
+  // refresh doesn't lose approvals/declines.
+  loadLeaveOverrides();
+
   let leaveRequests = [];
 
   employeeData.employees.forEach((employee) => {
     employee.leaveRequests.forEach((leave) => {
       leaveRequests.push({
+        leaveId: leave.leaveId,
         employee: employee.name,
         empId: employee.employeeId,
         department: employee.department,
@@ -101,6 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (activeAction === "approve") {
       request.status = "Approved";
+      saveLeaveOverride(request.leaveId, {
+        status: "Approved",
+        reason: request.reason,
+      });
       renderLeaveRows();
       closeModal();
       return;
@@ -115,6 +159,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     request.status = "Declined";
     request.reason = reason;
+    saveLeaveOverride(request.leaveId, {
+      status: "Declined",
+      reason: reason,
+    });
     renderLeaveRows();
     closeModal();
   }
@@ -135,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const matchesSearch =
         request.employee.toLowerCase().includes(searchValue) ||
-        request.empId.toLowerCase().includes(searchValue) ||
+        String(request.empId).toLowerCase().includes(searchValue) ||
         request.department.toLowerCase().includes(searchValue);
 
       const matchesDepartment =
@@ -210,3 +258,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderLeaveRows();
 });
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    const confirmLogout = confirm("Are you sure you want to log out?");
+
+    if (confirmLogout) {
+      localStorage.removeItem("loggedInUser");
+      window.location.href = "login.html";
+    }
+  });
+}
