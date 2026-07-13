@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Profile - ModernTech</title>
+    <title>Profile | ModernTech</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,94 +28,56 @@
 </head>
 
 <body>
-    <!-- Skip Link -->
-    <a href="#mainContent" class="skip-link">
-        Skip to main content
-    </a>
-
-    <!-- Mobile Sidebar Toggle -->
+    <body class="page-leave">
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+    
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu" aria-expanded="false"
         aria-controls="sidebar">
-
-        <i class="ti ti-menu-2"></i>
-
+        <i class="ti ti-menu-2" aria-hidden="true"></i>
     </button>
-
-    <!-- ==========================
-         SIDEBAR
-    =========================== -->
-
+    
     <aside class="sidebar" id="sidebar">
-
-        <!-- Brand -->
         <div class="brand">
-
-                <svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ModernTech icon" style="flex-shrink:0;">
-                <rect x="0" y="0" width="34" height="34" rx="9" fill="#27187e"/>
-                <path d="M7 25 L7 9.5 L17 17.5 L27 9.5 L27 25" fill="none" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M25 0 L34 0 L34 9 A9 9 0 0 1 25 0 Z" fill="#ff8600"/>
-                </svg>
-
+            <svg width="34" height="34" viewBox="0 0 34 34" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-label="ModernTech icon" style="flex-shrink:0;">
+                <rect x="0" y="0" width="34" height="34" rx="9" fill="#27187e" />
+                <path d="M7 25 L7 9.5 L17 17.5 L27 9.5 L27 25" fill="none" stroke="#ffffff" stroke-width="3.2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M25 0 L34 0 L34 9 A9 9 0 0 1 25 0 Z" fill="#ff8600" />
+            </svg>
             <div>
-
-                <div class="brand-name">
-                    ModernTech
-                </div>
-
-                <div class="brand-sub">
-                    Worker Portal
-                </div>
-
+                <div class="brand-name">ModernTech</div>
+                <div class="brand-sub">Workspace overview</div>
             </div>
-
         </div>
-
-        <!-- Navigation -->
-        <div class="nav-section-label">
-            Employee Self-Service
-        </div>
-
-        <nav class="primary-nav">
-
-            <a href="worker-dashboard.html" class="nav-item"><i class="ti ti-layout-dashboard" aria-hidden="true"></i>Dashboard</a>
+    
+        <div class="nav-section-label">Workspace</div>
+        <nav class="primary-nav" aria-label="Primary">
+            <a href="worker-dashboard.html" class="nav-item" aria-current="page"><i class="ti ti-layout-grid"
+                    aria-hidden="true"></i>Dashboard</a>
+            <a href="worker-attendance.html" class="nav-item"><i class="ti ti-calendar-check"
+                    aria-hidden="true"></i>Attendance</a>
+            <a href="worker-leave.html" class="nav-item"><i class="ti ti-beach" aria-hidden="true"></i>Leave</a>
             <a href="worker-payslip.html" class="nav-item"><i class="ti ti-file-dollar" aria-hidden="true"></i>Payslips</a>
-            <a href="worker-attendance.html" class="nav-item"><i class="ti ti-clock-check" aria-hidden="true"></i>Attendance</a>
-            <a href="worker-leave.html" class="nav-item"><i class="ti ti-beach" aria-hidden="true"></i>My Leave</a>
-            <a href="worker-profile.html" class="nav-item active"><i class="ti ti-user-circle" aria-hidden="true"></i>Profile</a>
-            <a href="worker-notifications.html" class="nav-item"><i class="ti ti-bell" aria-hidden="true"></i>Notifications</a>
-
+            <a href="worker-profile.html" class="nav-item active"><i class="ti ti-user-circle" aria-hidden="true"></i>My
+                Profile</a>
         </nav>
-
-        <!-- Sidebar Footer -->
+    
         <div class="sidebar-footer">
-
-
-            <button class="user-chip" type="button">
-
-                <div class="avatar" id="sidebarInitials">KN</div>
+            <button class="user-chip" id="userMenuBtn" aria-haspopup="true" aria-expanded="false">
+                <div class="avatar">SN</div>
                 <div>
-                    <div class="name" id="sidebarName">Keshav Naidoo</div>
-                    <div class="role" id="sidebarRole">Sales Representative</div>
+                    <div class="name">Sibongile Nkosi</div>
+                    <div class="role">EMP-001</div>
                 </div>
-
-                <i class="ti ti-chevron-right"></i>
-
+                <i class="ti ti-chevron-down" aria-hidden="true"></i>
             </button>
-
-            <div class="logout-wrap">
-
-                <button class="btn secondary full" type="button">
-
-                    <i class="ti ti-logout"></i>
-
-                    Logout
-
-                </button>
-
-            </div>
-
+    
+            <button id="logoutBtn" class="logout-btn">
+                <i class="ti ti-logout"></i>
+                Logout
+            </button>
         </div>
-
     </aside>
 
 
@@ -369,29 +331,19 @@
                             <div class="emp-profile-timeline-dot"></div>
 
                             <div>
-
                                 <h4>Current Position</h4>
-
                                 <p id="empPositionHistory"></p>
-
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
+    <!-- Javascript -->
     <script src="javascript/worker-profile.js"></script>
     <script src="javascript/script.js"></script>
 
-
 </body>
-
 </html>
