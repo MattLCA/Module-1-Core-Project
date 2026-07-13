@@ -100,7 +100,7 @@ h1,h2,h3,.brand-name,.stat-value,.payroll-val-text,.slip-total-row{font-family:'
   cursor:pointer;
 }
 
-/* ---------- 3. SIDEBAR (shared: dashboard, employees, payroll, performance) ---------- */
+/* ---------- 3. SIDEBAR (shared: dashboard, employees, payroll, performance, attendance) ---------- */
 .sidebar{
   width:var(--sidebar-w);
   min-width:var(--sidebar-w);
@@ -341,7 +341,6 @@ nav.primary-nav{display:flex;flex-direction:column;gap:2px;}
 .stat-trend.up{color:#1c8a4c;background:#e7f6ec;}
 .stat-trend.down{color:#c94848;background:#fbeaea;}
 .stat-trend.flat{color:var(--text-soft);background:var(--grey);}
-/* Neutral: use where a numeric drop isn't necessarily bad news (e.g. fewer open positions) */
 .stat-trend.neutral{color:var(--text-mid);background:var(--grey);}
 
 .stat-value{font-size:26px;font-weight:600;}
@@ -404,6 +403,28 @@ td:first-child{padding-left:2px;}
 .status-pill.calc{background:#eceeff;color:var(--periwinkle);}
 .status-pill.verified{background:rgba(255,134,0,.12);color:#d66f00;}
 .status-pill.disbursed{background:#e7f6ec;color:#1c8a4c;}
+.status-pill.present{background:#e7f6ec;color:#1c8a4c;}
+.status-pill.late{background:rgba(255,134,0,.12);color:#d66f00;}
+.status-pill.absent{background:rgba(201,72,72,.12);color:#c94848;}
+.status-pill.review{background:rgba(255,159,67,.12);color:#d97706;}
+.status-pill.progress{background:rgba(117,139,253,.12);color:#4f46e5;}
+.status-pill.resolved{background:rgba(62,207,142,.12);color:#059669;}
+.status-pill.low{background:rgba(255,216,173,.6);color:#be7900;}
+.status-pill.medium{background:rgba(254,231,164,.6);color:#a96e00;}
+.status-pill.high{background:rgba(255,163,100,.8);color:#d15f00;}
+.status-pill.critical{background:rgba(255,111,111,.15);color:#dc2626;}
+.status-pill.sick-leave{background:rgba(255,115,115,.12);color:#d14b4b;}
+.status-pill.vacation{background:rgba(117,139,253,.12);color:#4f46e5;}
+.status-pill.personal{background:rgba(255,187,121,.16);color:#c97314;}
+.status-pill.medical-appointment{background:rgba(255,115,115,.12);color:#d14b4b;}
+.status-pill.bereavement{background:var(--grey);color:var(--text-mid);}
+.status-pill.childcare{background:rgba(107,130,255,.12);color:#4c53d5;}
+.status-pill.family-responsibility{background:rgba(183,148,255,.14);color:#7d5ddc;}
+.status-pill.annual-leave{background:rgba(107,130,255,.12);color:#4c53d5;}
+.status-pill.casual-leave{background:rgba(255,187,121,.16);color:#c97314;}
+.status-pill.pending{background:rgba(255,159,67,.12);color:#d97706;}
+.status-pill.approved{background:#e7f6ec;color:#1c8a4c;}
+.status-pill.declined,.status-pill.denied,.status-pill.rejected,.status-pill.cancelled{background:rgba(201,72,72,.12);color:#c94848;}
 
 .dept-tag{
   display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:500;color:var(--text-mid);
@@ -453,7 +474,7 @@ td:first-child{padding-left:2px;}
 .notif-item span{color:var(--text-soft);font-size:11px;}
 .notif-item.unread{background:#f7f7fd;}
 
-/* ---------- 8. MODALS & FORMS (shared base — dashboard/performance mechanism; see section 11 for employees/payroll overrides) ---------- */
+/* ---------- 8. MODALS & FORMS (shared base) ---------- */
 .modal-overlay{
   position:fixed;top:0;left:0;width:100%;height:100%;
   background:rgba(29,26,58,.4);
@@ -598,7 +619,7 @@ td:first-child{padding-left:2px;}
 .empty-inline i{font-size:26px;}
 .empty-inline p,.empty-inline span{font-size:13px;font-weight:500;}
 
-/* ---------- 9b. EMPLOYEES-ONLY: summary strip, filter chips, row menu, toast, table wrapper, its own modal ---------- */
+/* ---------- 9b. EMPLOYEES-ONLY ---------- */
 .summary-strip{
   display:grid;
   grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
@@ -681,7 +702,6 @@ td:first-child{padding-left:2px;}
 
 .empty-row td{padding:32px 0;text-align:center;color:var(--text-soft);font-size:13.5px;border-top:1px solid var(--line);}
 
-/* Employees page has its own modal implementation (class name ".modal", not ".modal-card") */
 .modal{
   background:var(--white);border-radius:var(--radius-lg);width:100%;max-width:420px;
   padding:24px;
@@ -720,7 +740,7 @@ td:first-child{padding-left:2px;}
 .table-wrapper::-webkit-scrollbar{height:8px;}
 .table-wrapper::-webkit-scrollbar-thumb{background:#c8c8d8;border-radius:20px;}
 
-/* ---------- 9c. PAYROLL-ONLY: financial summary, ledger extras, payslip modal, print ---------- */
+/* ---------- 9c. PAYROLL-ONLY ---------- */
 .panel-actions{display:flex;gap:10px;}
 
 .payroll-summary-strip{
@@ -761,6 +781,10 @@ td:first-child{padding-left:2px;}
 .pay-action-btn.disabled{
   background:var(--grey);border-color:var(--line);color:var(--text-soft);cursor:not-allowed;
 }
+.pay-action-btn.approve{background:var(--orange);border-color:var(--orange);color:var(--white);}
+.pay-action-btn.approve:hover{background:#ff7500;border-color:#ff7500;}
+.pay-action-btn.decline{background:transparent;border-color:var(--orange);color:var(--orange);}
+.pay-action-btn.decline:hover{background:var(--orange);color:var(--white);}
 
 .slip-btn{
   background:var(--grey);
@@ -810,7 +834,7 @@ td:first-child{padding-left:2px;}
   .modal-close-icon, .modal-footer-actions{display:none !important;}
 }
 
-/* ---------- 9d. PERFORMANCE-ONLY: rating badges, goal progress, goals/OKRs, 1:1 list ---------- */
+/* ---------- 9d. PERFORMANCE-ONLY ---------- */
 .rating-badge{
   display:inline-block;
   font-family:'Space Grotesk',sans-serif;
@@ -855,6 +879,323 @@ td:first-child{padding-left:2px;}
 .goal-status.at-risk{background:#fff1e0;color:#b25f00;}
 .goal-status.behind{background:#fbeaea;color:#c94848;}
 
+/* ---------- 9e. ATTENDANCE-ONLY: clock card, live stats, timesheet, analytics donut ---------- */
+.attendance-grid{
+  display:grid;
+  grid-template-columns:1.5fr .6fr 1fr .9fr;
+  gap:16px;
+  margin-bottom:16px;
+}
+
+.clock-card{display:flex;flex-direction:column;gap:14px;}
+.clock-time{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:600;color:var(--text-dark);}
+.clock-label,.clock-location{margin:0;font-size:13px;color:var(--text-soft);font-weight:500;}
+.clock-card .primary-btn{width:fit-content;margin-top:4px;}
+
+.status-line{
+  display:flex;align-items:center;gap:8px;
+  margin-top:10px;font-size:13px;font-weight:600;color:var(--text-mid);
+}
+.status-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.status-dot.status-online{background:#1c8a4c;}
+.status-dot.status-offline{background:var(--text-soft);}
+
+.stats-card{display:flex;flex-direction:column;gap:12px;}
+.stat-block{
+  padding:14px 16px;
+  border-radius:var(--radius-md);
+  background:var(--grey);
+}
+.stat-block .stat-label{font-size:11.5px;color:var(--text-soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-top:0;}
+.stat-block .stat-value{font-size:19px;font-weight:600;margin-top:4px;}
+.stat-block .stat-meta{font-size:11.5px;color:var(--text-soft);margin-top:2px;font-weight:500;}
+
+.timesheet-card{display:flex;flex-direction:column;gap:4px;}
+.timesheet-header{
+  display:flex;justify-content:space-between;
+  font-size:12px;font-weight:600;color:var(--text-soft);
+  padding-bottom:10px;margin-bottom:6px;border-bottom:1px solid var(--line);
+}
+.timesheet-row{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:11px 0;border-bottom:1px solid var(--line);
+  font-size:13.5px;color:var(--text-mid);font-weight:500;
+}
+.timesheet-row:last-child{border-bottom:none;}
+
+.badge{
+  font-size:11px;font-weight:700;padding:4px 9px;border-radius:20px;display:inline-block;white-space:nowrap;
+}
+.badge-warning{background:#fff1e0;color:#b25f00;}
+.badge-success{background:#e7f6ec;color:#1c8a4c;}
+.badge-danger{background:#fbeaea;color:#c94848;}
+
+.analytics-card{display:flex;flex-direction:column;align-items:center;gap:16px;}
+.analytics-header{align-self:flex-start;font-size:13px;font-weight:600;color:var(--text-mid);}
+
+.donut-ring{
+  width:130px;height:130px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--grey);
+}
+body.page-attendance #donut.donut-ring{
+  background:conic-gradient(var(--periwinkle) 0 68%, var(--orange) 68% 88%, var(--grey) 88% 100%);
+}
+.donut-hole{
+  width:88px;height:88px;border-radius:50%;
+  background:var(--white);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+}
+.donut-hole strong{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:var(--text-dark);}
+.donut-hole small{font-size:10.5px;color:var(--text-soft);font-weight:600;margin-top:2px;}
+
+.analytics-list{list-style:none;width:100%;display:flex;flex-direction:column;gap:9px;}
+.analytics-list li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-mid);font-weight:500;}
+.analytics-list li strong{margin-left:auto;color:var(--text-dark);font-weight:600;}
+
+.legend{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.legend-blue{background:var(--periwinkle);}
+.legend-orange{background:var(--orange);}
+.legend-grey{background:var(--text-soft);}
+
+.analytics-meta{width:100%;display:flex;flex-direction:column;gap:8px;padding-top:6px;border-top:1px solid var(--line);}
+.analytics-meta div{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-mid);font-weight:500;}
+.analytics-meta strong{color:var(--text-dark);font-weight:600;}
+
+.analytics-trend{
+  width:100%;text-align:center;
+  font-size:11.5px;font-weight:600;color:var(--text-soft);
+  padding:8px;border-radius:var(--radius-sm);background:var(--grey);
+}
+
+@media (max-width: 1180px){
+  .attendance-grid{grid-template-columns:1fr 1fr;}
+}
+@media (max-width: 640px){
+  .attendance-grid{grid-template-columns:1fr;}
+}
+
+/* ---------- 9f. ISSUES REPORTING-ONLY: report form, overview donut, reports table, timeline ---------- */
+.full-width{grid-column:1 / -1;}
+
+.report-form{display:flex;flex-direction:column;}
+.checkbox-field{
+  display:flex;align-items:center;gap:10px;
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:10px 12px;
+  background:var(--white);
+  font-size:12.5px;font-weight:600;color:var(--text-mid);
+  margin-bottom:16px;
+}
+.checkbox-field input{width:16px;height:16px;accent-color:var(--orange);flex-shrink:0;}
+
+.info-note{
+  font-size:12.5px;color:var(--text-soft);line-height:1.6;
+  background:var(--grey);border-radius:var(--radius-md);padding:14px 16px;
+}
+
+.overview-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:18px;
+}
+.overview-summary{background:var(--grey);border-radius:var(--radius-md);padding:14px 16px;}
+.overview-summary span{display:block;font-size:11.5px;color:var(--text-soft);font-weight:600;margin-bottom:6px;}
+.overview-summary strong{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;color:var(--text-dark);}
+
+.donut-outer{
+  display:flex;flex-direction:column;align-items:center;gap:16px;
+  padding:18px;border-radius:var(--radius-lg);background:var(--grey);
+}
+.donut-legend{list-style:none;width:100%;display:flex;flex-direction:column;gap:9px;}
+.donut-legend li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-mid);font-weight:500;}
+.donut-legend li strong{margin-left:auto;color:var(--text-dark);font-weight:600;}
+.legend-dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex-shrink:0;}
+.legend-resolved{background:#3ecf8e;}
+.legend-progress{background:var(--periwinkle);}
+.legend-review{background:var(--orange);}
+
+.reports-table-container{overflow-x:auto;}
+
+.timeline-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:16px;
+  margin-top:8px;
+}
+.timeline-item{
+  background:var(--grey);
+  border-radius:var(--radius-md);
+  padding:16px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.timeline-step{display:flex;flex-direction:column;gap:8px;}
+.timeline-dot{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.timeline-dot.review{background:var(--orange);}
+.timeline-dot.progress{background:var(--periwinkle);}
+.timeline-dot.resolved{background:#3ecf8e;}
+.timeline-title{font-size:13.5px;font-weight:600;color:var(--text-dark);}
+.timeline-time{font-size:11.5px;color:var(--text-soft);font-weight:500;}
+.timeline-detail{font-size:12.5px;color:var(--text-mid);line-height:1.5;}
+
+@media (max-width: 1080px){
+  .overview-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+/* ---------- 9g. LEAVE-ONLY: filter row, wide data table, approve/decline modal ---------- */
+.leave-filters{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.leave-filters input[type="text"]{
+  flex:2;min-width:220px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--white);color:var(--text-dark);
+  padding:9px 14px;font:inherit;font-size:13.5px;outline:none;
+}
+.leave-filters select{
+  flex:1;min-width:170px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--white);color:var(--text-dark);
+  padding:9px 14px;font:inherit;font-size:13.5px;outline:none;
+}
+.leave-filters input[type="text"]:focus,
+.leave-filters select:focus{
+  border-color:var(--periwinkle);
+  box-shadow:0 0 0 3px rgba(117,139,253,.15);
+}
+.filter-count{
+  margin-left:auto;
+  font-size:12.5px;font-weight:600;color:var(--text-soft);
+  white-space:nowrap;
+}
+.filter-count span{color:var(--text-dark);font-weight:700;}
+
+.leave-table-container{overflow-x:auto;}
+.leave-data-table{width:100%;min-width:1500px;border-collapse:collapse;table-layout:fixed;}
+.leave-data-table td{white-space:normal;overflow-wrap:break-word;}
+
+body.page-leave .modal-overlay{
+  position:fixed;inset:0;
+  background:rgba(29,26,58,.4);
+  backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;z-index:10010;
+}
+body.page-leave .modal-overlay.hidden{display:none;}
+
+.modal-dialog{
+  background:var(--white);
+  width:100%;max-width:560px;
+  border-radius:var(--radius-lg);
+  padding:28px;
+  box-shadow:0 12px 36px rgba(29,26,58,.15);
+  border:1px solid var(--line);
+}
+.modal-dialog .modal-header{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
+  margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--line);
+}
+.modal-dialog .modal-header h2{font-size:16px;font-weight:600;}
+.modal-dialog .modal-header p{font-size:12.5px;color:var(--text-soft);margin-top:4px;font-weight:500;}
+.modal-close{background:none;border:none;font-size:22px;line-height:1;color:var(--text-soft);cursor:pointer;}
+.modal-close:hover{color:var(--text-dark);}
+
+.modal-content{display:flex;flex-direction:column;gap:14px;margin-bottom:20px;}
+.modal-request-details{
+  background:var(--grey);border-radius:var(--radius-md);
+  padding:14px 16px;font-size:12.5px;color:var(--text-mid);line-height:1.7;
+}
+.modal-textarea-label{font-size:12.5px;font-weight:600;color:var(--text-mid);}
+.modal-textarea{
+  width:100%;border:1px solid var(--line);border-radius:var(--radius-sm);
+  background:var(--white);color:var(--text-dark);padding:10px 12px;
+  font:inherit;font-size:13.5px;resize:vertical;outline:none;
+}
+.modal-textarea:focus{border-color:var(--periwinkle);}
+
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;}
+.modal-button{
+  border:none;border-radius:10px;padding:10px 16px;
+  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:600;cursor:pointer;
+}
+.modal-button.primary{background:var(--orange);color:var(--white);}
+.modal-button.primary:hover{background:#e07600;}
+.modal-button.secondary{background:var(--white);color:var(--text-dark);border:1px solid var(--line);}
+.modal-button.secondary:hover{background:var(--grey);}
+
+/* ---------- 9h. TIME OFF-ONLY: summary cards, filter row, grid-based table ---------- */
+.timeoff-grid{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0,1fr));
+  gap:16px;
+  margin-bottom:16px;
+}
+.timeoff-card{display:flex;flex-direction:column;gap:12px;}
+.card-label{
+  display:block;font-size:12.5px;font-weight:600;color:var(--text-mid);margin-bottom:8px;
+}
+.timeoff-value{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:600;color:var(--text-dark);line-height:1;}
+.timeoff-meta{
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding-top:10px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--text-soft);font-weight:500;
+}
+.timeoff-meta strong{color:var(--text-dark);font-weight:600;}
+
+.card-heading{
+  display:flex;flex-direction:column;gap:14px;margin-bottom:16px;
+}
+.card-heading h3{font-size:15.5px;font-weight:600;}
+
+.timeoff-filters{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.timeoff-filters input[type="text"]{
+  flex:2;min-width:220px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--white);color:var(--text-dark);
+  padding:9px 14px;font:inherit;font-size:13.5px;outline:none;
+}
+.timeoff-filters select{
+  flex:1;min-width:170px;
+  border:1px solid var(--line);border-radius:10px;
+  background:var(--white);color:var(--text-dark);
+  padding:9px 14px;font:inherit;font-size:13.5px;outline:none;
+}
+.timeoff-filters input[type="text"]:focus,
+.timeoff-filters select:focus{
+  border-color:var(--periwinkle);
+  box-shadow:0 0 0 3px rgba(117,139,253,.15);
+}
+
+.timeoff-table{overflow-x:auto;}
+.timeoff-rows{display:flex;flex-direction:column;}
+.timeoff-row{
+  display:grid;
+  grid-template-columns:1fr 1.4fr 1fr 1.2fr .9fr .9fr .65fr;
+  gap:12px;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+  min-width:760px;
+}
+.timeoff-row:last-child{border-bottom:none;}
+.timeoff-row span{font-size:13.5px;color:var(--text-mid);font-weight:500;}
+.timeoff-row--header{
+  color:var(--text-soft);font-size:11.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.05em;
+  padding-bottom:12px;
+}
+.timeoff-row--header span{color:inherit;font-size:inherit;font-weight:inherit;}
+.timeoff-row .emp-cell{gap:10px;}
+.timeoff-row .emp-name{font-weight:600;color:var(--text-dark);}
+
+@media (max-width: 1080px){
+  .timeoff-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width: 640px){
+  .timeoff-grid{grid-template-columns:1fr;}
+}
+
 /* ---------- 10. RESPONSIVE (shared, with a few page tweaks folded in) ---------- */
 @media (max-width: 1080px){
   .stats-grid{grid-template-columns:repeat(2,1fr);}
@@ -889,7 +1230,6 @@ td:first-child{padding-left:2px;}
   .stats-grid{grid-template-columns:1fr;}
   .summary-strip{grid-template-columns:1fr;}
 
-  /* Performance page: stack the team table into cards on mobile */
   body.page-performance table thead{display:none;}
   body.page-performance table,
   body.page-performance table tbody,
@@ -912,14 +1252,7 @@ td:first-child{padding-left:2px;}
 
 /* ==========================================================================
    11. PAGE-SPECIFIC OVERRIDES
-   These selectors were styled slightly differently per page in the original
-   files. Scoping them with a body.page-* class keeps each page's original
-   look/behavior intact without duplicating the whole ruleset per page.
-   Add class="page-dashboard" / "page-employees" / "page-payroll" /
-   "page-performance" / "page-login" to each page's <body> tag.
    ========================================================================== */
-
-/* --- table cell padding & avatar size (varied per page in the originals) --- */
 body.page-dashboard th{padding:0 10px 10px 0;}
 body.page-dashboard td{padding:11px 10px 11px 0;}
 body.page-dashboard .emp-avatar{width:30px;height:30px;}
@@ -937,20 +1270,26 @@ body.page-performance th{padding:0 10px 10px 0;}
 body.page-performance td{padding:12px 10px 12px 0;vertical-align:middle;}
 body.page-performance .emp-avatar{width:30px;height:30px;}
 
-/* --- topbar spacing --- */
+body.page-attendance th{padding:0 12px 12px 0;}
+body.page-attendance td{padding:13px 12px 13px 0;vertical-align:middle;}
+body.page-attendance .emp-avatar{width:32px;height:32px;}
+
+body.page-issues .reports-table th{padding:14px;}
+body.page-issues .reports-table td{padding:14px;border-top:1px solid var(--line);}
+
+body.page-leave th{padding:0 12px 12px 0;}
+body.page-leave td{padding:13px 12px 13px 0;vertical-align:middle;}
+body.page-leave .emp-avatar{width:32px;height:32px;}
+
 body.page-employees .topbar{margin-bottom:22px;}
 
-/* --- search box width --- */
 body.page-employees .search-box{max-width:250px;width:100%;}
 body.page-payroll .search-box{width:280px;}
 
-/* --- panel sizing (payroll uses larger padding/heading) --- */
 body.page-payroll .panel{padding:24px;}
 body.page-payroll .panel-head{margin-bottom:20px;}
 body.page-payroll .panel-head h2{font-size:17px;}
 
-/* --- modal overlay: each page toggles it differently in JS, so each
-       page's mechanism is preserved here instead of forced to match --- */
 body.page-employees .modal-overlay{
   position:fixed;inset:0;
   background:rgba(27,17,60,.42);
@@ -965,7 +1304,6 @@ body.page-payroll .modal-overlay{
 }
 body.page-payroll .modal-overlay.active{display:flex;}
 
-/* --- modal card sizing (payroll's payslip modal is larger) --- */
 body.page-payroll .modal-card{
   max-width:500px;
   padding:32px;
@@ -976,8 +1314,6 @@ body.page-payroll .modal-header{margin-bottom:24px;}
 
 /* ==========================================================================
    12. LOGIN PAGE (scoped to body.page-login)
-   Kept separate because the login layout, its .brand block, and several
-   variable names (--light/--background/--text/--muted) are specific to it.
    ========================================================================== */
 body.page-login{
   display:flex;
@@ -989,7 +1325,6 @@ body.page-login{
   min-height:100vh;
 }
 
-/* LEFT SIDE */
 .brand-section{
   width:50%;
   background:var(--indigo);
@@ -1042,7 +1377,6 @@ body.page-login .brand p{
   font-size:20px;
 }
 
-/* LOGIN */
 .login-section{
   width:50%;
   display:flex;
