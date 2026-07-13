@@ -1,8 +1,8 @@
-console.log("Employee Information JS file is connected");
+console.log("WORKER-Profile JS file is connected");
 
 document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll(".emp-info-tab");
-  const contents = document.querySelectorAll(".emp-info-content");
+  const tabs = document.querySelectorAll(".emp-profile-tab");
+  const contents = document.querySelectorAll(".emp-profile-content");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-fetch("../data/employee_info.json")
+fetch("data/employee_info.json")
   .then((response) => {
     if (!response.ok) {
       throw new Error("JSON could not be loaded.");

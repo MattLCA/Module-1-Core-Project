@@ -1,15 +1,14 @@
-
 const accounts = {
   hr: { email: "hr@moderntech.com", password: "hr123", redirect: "hr-dashboard.html" },
   worker: { email: "worker@moderntech.com", password: "worker123", redirect: "worker-dashboard.html" }
 };
 
 const defaultProfile = {
-  fullName: "Keshav Naidoo",
-  jobTitle: "Sales Representative",
-  emailAddress: "keshav@moderntech.com",
+  fullName: "Sibongile Nkosi",
+  jobTitle: "Software Engineer",
+  emailAddress: "sibongile.nkosi@moderntech.com",
   phoneNumber: "+27 71 234 5678",
-  department: "Sales",
+  department: "IT",
   employeeId: "EMP-2048",
   emergencyContact: "A. Naidoo - +27 72 555 0199",
   bankName: "FNB",
@@ -112,7 +111,7 @@ function initializeLogin() {
 function protectPage(requiredRole) {
   const user = localStorage.getItem("loggedInUser");
   if (!user) {
-    location.href = "login.html";
+    location.href = "../login.html";
     return;
   }
   if (requiredRole && user !== requiredRole) {
@@ -410,3 +409,5 @@ function showToast(message) {
   toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 2800);
 }
+
+
