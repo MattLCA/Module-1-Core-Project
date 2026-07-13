@@ -307,7 +307,7 @@ function renderLeave() {
   if (balance) balance.textContent = `${calculateLeaveBalance(requests)} days available`;
 
   table.innerHTML = requests.length
-    ? requests.map(req => `<tr><td>${req.type}</td><td>${req.start} to ${req.end}</td><td>${req.days}</td><td>${req.reason}</td><td><span class="status pending">${req.status}</span></td></tr>`).join("")
+    ? requests.map(req => `<tr><td>${req.type}</td><td>${req.start}</td><td>${req.end}</td><td>${req.days}</td><td><span class="status pending">${req.status}</span></td></tr>`).join("")
     : `<tr><td colspan="5">No leave requests submitted yet.</td></tr>`;
 }
 
