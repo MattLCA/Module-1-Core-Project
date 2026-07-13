@@ -3,7 +3,7 @@ JSON.parse(localStorage.getItem("loggedInUser"));
 
 if(!loggedInUser){
 
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 
 }
 
@@ -502,7 +502,7 @@ if(logoutBtn){
 
             localStorage.removeItem("loggedInUser");
 
-            window.location.href = "login.html";
+            window.location.href = "index.html";
 
         }
 

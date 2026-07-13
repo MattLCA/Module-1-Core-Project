@@ -112,7 +112,7 @@ function initializeLogin() {
 function protectPage(requiredRole) {
   const user = localStorage.getItem("loggedInUser");
   if (!user) {
-    location.href = "login.html";
+    location.href = "index.html";
     return;
   }
   if (requiredRole && user !== requiredRole) {
@@ -122,7 +122,7 @@ function protectPage(requiredRole) {
 
 function logout() {
   localStorage.removeItem("loggedInUser");
-  location.href = "login.html";
+  location.href = "index.html";
 }
 
 function highlightCurrentPage() {

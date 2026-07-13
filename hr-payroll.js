@@ -551,7 +551,7 @@ if(logoutBtn){
 
             localStorage.removeItem("loggedInUser");
 
-            window.location.href = "login.html";
+            window.location.href = "index.html";
 
         }
 
