@@ -2,19 +2,20 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet"/>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
     <title>Leave | ModernTech</title>
 
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="style.css" />
+
 </head>
 
-<body>
+<body class="page-leave">
     <a href="#mainContent" class="skip-link">Skip to main content</a>
     
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle navigation menu" aria-expanded="false"
@@ -43,9 +44,9 @@
                     aria-hidden="true"></i>Dashboard</a>
             <a href="worker-attendance.html" class="nav-item"><i class="ti ti-calendar-check"
                     aria-hidden="true"></i>Attendance</a>
-            <a href="WORKER-Leave.html" class="nav-item active"><i class="ti ti-beach" aria-hidden="true"></i>Leave</a>
+            <a href="worker-leave.html" class="nav-item active"><i class="ti ti-beach" aria-hidden="true"></i>Leave</a>
             <a href="worker-payslip.html" class="nav-item"><i class="ti ti-file-dollar" aria-hidden="true"></i>Payslips</a>
-            <a href="WORKER-Profile.html" class="nav-item"><i class="ti ti-user-circle" aria-hidden="true"></i>My
+            <a href="worker-profile.html" class="nav-item"><i class="ti ti-user-circle" aria-hidden="true"></i>My
                 Profile</a>
         </nav>
     
@@ -65,7 +66,6 @@
             </button>
         </div>
     </aside>
-
 
     <main class="main" id="mainContent">
         <section class="page-hero">
@@ -211,9 +211,10 @@
         </section>
     </main>
 
-    <script src="javascript/WORKER-Leave.js"></script>
-    <!-- <script src="javascript/script.js"></script> -->
-    
+
+    <!-- Javascript -->
+    <script src="javascript/worker-leave.js"></script>
+    <script src="javascript/script.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const tabs = document.querySelectorAll(".leave-tab");
