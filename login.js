@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const users = [
 
         {
-            email: "jordan@moderntech.com",
+            email: "busiswa@moderntech.com",
             password: "admin123",
             role: "HR Manager",
-            name: "Jordan Mensah"
+            name: "Busiswa Bala"
         },
 
         {
