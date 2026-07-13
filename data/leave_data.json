@@ -6,7 +6,12 @@
       "annual": 12,
       "sick": 8,
       "family": 3,
-      "study": 5
+      "study": 5,
+      "personal": 3,
+      "vacation": 15,
+      "medical": 2,
+      "bereavement": 3,
+      "childcare": 4
     },
 
     "leaveHistory": [

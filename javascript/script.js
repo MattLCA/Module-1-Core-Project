@@ -1,4 +1,3 @@
-
 const accounts = {
   hr: { email: "hr@moderntech.com", password: "hr123", redirect: "hr-dashboard.html" },
   worker: { email: "worker@moderntech.com", password: "worker123", redirect: "worker-dashboard.html" }
@@ -267,6 +266,10 @@ function updateLeaveBadge() {
 }
 
 function initializeLeave() {
+  // worker-leave.js fully owns the leave form/table/balance on this page.
+  // Bail out here to avoid both scripts fighting over the same elements.
+  if (document.body.classList.contains("page-leave")) return;
+
   const form = document.getElementById("leaveForm");
   if (!form) return;
 
