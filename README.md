@@ -10,7 +10,7 @@ Open `login.html` first.
 | Role   | Email                  | Password  |
 |--------|-------------------------|-----------|
 | HR     | hr@moderntech.com       | hr123     |
-| Worker | worker@moderntech.com   | worker123 |
+| Worker | EMP001                  | employee123 |
 
 ## Team & Sections
 
@@ -37,15 +37,14 @@ Admin-facing pages and logic for managing employees, payroll, attendance, leave,
 
 ### Employee Section — Angela & Mahir
 
-Worker-facing self-service pages: dashboard, profile, leave requests, attendance, payslips, and notifications.
+Worker-facing self-service pages: dashboard, profile, leave, attendance and payslips.
 
 - `worker-dashboard.html`
 - `worker-profile.html`
-- `worker-leave.html` / `angela/worker-leave.html`
+- `worker-leave.html`
 - `worker-attendance.html`
 - `worker-payslip.html`
-- `worker-notifications.html`
-- `javascript/script.js`, `javascript/worker-leave.js`, `javascript/worker-profile.js`
+- `javascript/script.js`, `javascript/logout.js`, `javascript/worker-leave.js`, `javascript/worker-profile.js`
 - `Css/worker-leave.css`, `Css/worker-profile.css`
 
 ## Shared Files
@@ -56,7 +55,6 @@ Worker-facing self-service pages: dashboard, profile, leave requests, attendance
 ## Features
 
 - Clickable worker dashboard cards
-- Profile form saves to `localStorage`
 - Attendance clock in/out saves to `localStorage`
 - Leave request form saves to `localStorage`
 - Payslip view with print and text-file download
